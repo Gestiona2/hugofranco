@@ -1,0 +1,251 @@
+{
+  "_comentario": "Galería de proyectos. 'filtros' controla los botones de arriba; cada imagen se asocia por el campo 'cliente'. Para agregar un proyecto: sube la foto a /public/img/proyectos/ y añade una entrada aquí.",
+  "seo": {
+    "titulo": "Proyectos | Hugo Franco Ingeniería",
+    "descripcion": "Humedales artificiales, plantas de tratamiento de agua residual y redes hidráulicas ejecutadas en Caldas: Universidad de Caldas, CHEC, Club Manizales, Termales de Tierra Viva y Solario."
+  },
+  "encabezado": {
+    "titulo": "Proyectos",
+    "texto": "Sistemas de tratamiento de agua residual y humedales artificiales ejecutados en Caldas. Obra construida, no renders.",
+    "imagen": "/img/proyectos/club-manizales-1.webp",
+    "alt": "Vista aérea de un sistema de tratamiento de agua residual"
+  },
+  "filtros": [
+    {
+      "id": "todo",
+      "texto": "Todo"
+    },
+    {
+      "id": "u-caldas",
+      "texto": "Universidad de Caldas"
+    },
+    {
+      "id": "termales",
+      "texto": "Termales de Tierra Viva"
+    },
+    {
+      "id": "solario",
+      "texto": "Solario"
+    },
+    {
+      "id": "chec",
+      "texto": "CHEC"
+    },
+    {
+      "id": "club-manizales",
+      "texto": "Club Manizales"
+    }
+  ],
+  "items": [
+    {
+      "cliente": "u-caldas",
+      "nombre": "Universidad de Caldas",
+      "descripcion": "Sistema de tratamiento de agua residual (S.T.A.R.)",
+      "src": "/img/proyectos/u-caldas-1.webp",
+      "alt": "Sistema de tratamiento de agua residual (S.T.A.R.) — Universidad de Caldas"
+    },
+    {
+      "cliente": "u-caldas",
+      "nombre": "Universidad de Caldas",
+      "descripcion": "Sistema de tratamiento de agua residual (S.T.A.R.)",
+      "src": "/img/proyectos/u-caldas-2.webp",
+      "alt": "Sistema de tratamiento de agua residual (S.T.A.R.) — Universidad de Caldas"
+    },
+    {
+      "cliente": "u-caldas",
+      "nombre": "Universidad de Caldas",
+      "descripcion": "Sistema de tratamiento de agua residual (S.T.A.R.)",
+      "src": "/img/proyectos/u-caldas-3.webp",
+      "alt": "Sistema de tratamiento de agua residual (S.T.A.R.) — Universidad de Caldas"
+    },
+    {
+      "cliente": "u-caldas",
+      "nombre": "Universidad de Caldas",
+      "descripcion": "Sistema de tratamiento de agua residual (S.T.A.R.)",
+      "src": "/img/proyectos/u-caldas-4.webp",
+      "alt": "Sistema de tratamiento de agua residual (S.T.A.R.) — Universidad de Caldas"
+    },
+    {
+      "cliente": "termales",
+      "nombre": "Termales de Tierra Viva",
+      "descripcion": "Humedal artificial para tratamiento de agua residual",
+      "src": "/img/proyectos/termales-1.webp",
+      "alt": "Humedal artificial para tratamiento de agua residual — Termales de Tierra Viva"
+    },
+    {
+      "cliente": "termales",
+      "nombre": "Termales de Tierra Viva",
+      "descripcion": "Humedal artificial para tratamiento de agua residual",
+      "src": "/img/proyectos/termales-2.webp",
+      "alt": "Humedal artificial para tratamiento de agua residual — Termales de Tierra Viva"
+    },
+    {
+      "cliente": "termales",
+      "nombre": "Termales de Tierra Viva",
+      "descripcion": "Humedal artificial para tratamiento de agua residual",
+      "src": "/img/proyectos/termales-3.webp",
+      "alt": "Humedal artificial para tratamiento de agua residual — Termales de Tierra Viva"
+    },
+    {
+      "cliente": "termales",
+      "nombre": "Termales de Tierra Viva",
+      "descripcion": "Humedal artificial para tratamiento de agua residual",
+      "src": "/img/proyectos/termales-4.webp",
+      "alt": "Humedal artificial para tratamiento de agua residual — Termales de Tierra Viva"
+    },
+    {
+      "cliente": "termales",
+      "nombre": "Termales de Tierra Viva",
+      "descripcion": "Humedal artificial para tratamiento de agua residual",
+      "src": "/img/proyectos/termales-5.webp",
+      "alt": "Humedal artificial para tratamiento de agua residual — Termales de Tierra Viva"
+    },
+    {
+      "cliente": "solario",
+      "nombre": "Solario",
+      "descripcion": "Sistema de tratamiento de agua residual (S.T.A.R.)",
+      "src": "/img/proyectos/solario-1.webp",
+      "alt": "Sistema de tratamiento de agua residual (S.T.A.R.) — Solario"
+    },
+    {
+      "cliente": "solario",
+      "nombre": "Solario",
+      "descripcion": "Sistema de tratamiento de agua residual (S.T.A.R.)",
+      "src": "/img/proyectos/solario-2.webp",
+      "alt": "Sistema de tratamiento de agua residual (S.T.A.R.) — Solario"
+    },
+    {
+      "cliente": "solario",
+      "nombre": "Solario",
+      "descripcion": "Sistema de tratamiento de agua residual (S.T.A.R.)",
+      "src": "/img/proyectos/solario-3.webp",
+      "alt": "Sistema de tratamiento de agua residual (S.T.A.R.) — Solario"
+    },
+    {
+      "cliente": "solario",
+      "nombre": "Solario",
+      "descripcion": "Sistema de tratamiento de agua residual (S.T.A.R.)",
+      "src": "/img/proyectos/solario-4.webp",
+      "alt": "Sistema de tratamiento de agua residual (S.T.A.R.) — Solario"
+    },
+    {
+      "cliente": "solario",
+      "nombre": "Solario",
+      "descripcion": "Sistema de tratamiento de agua residual (S.T.A.R.)",
+      "src": "/img/proyectos/solario-5.webp",
+      "alt": "Sistema de tratamiento de agua residual (S.T.A.R.) — Solario"
+    },
+    {
+      "cliente": "chec",
+      "nombre": "CHEC",
+      "descripcion": "Construcción de humedal artificial",
+      "src": "/img/proyectos/chec-1.webp",
+      "alt": "Construcción de humedal artificial — CHEC"
+    },
+    {
+      "cliente": "chec",
+      "nombre": "CHEC",
+      "descripcion": "Construcción de humedal artificial",
+      "src": "/img/proyectos/chec-2.webp",
+      "alt": "Construcción de humedal artificial — CHEC"
+    },
+    {
+      "cliente": "chec",
+      "nombre": "CHEC",
+      "descripcion": "Construcción de humedal artificial",
+      "src": "/img/proyectos/chec-3.webp",
+      "alt": "Construcción de humedal artificial — CHEC"
+    },
+    {
+      "cliente": "chec",
+      "nombre": "CHEC",
+      "descripcion": "Construcción de humedal artificial",
+      "src": "/img/proyectos/chec-4.webp",
+      "alt": "Construcción de humedal artificial — CHEC"
+    },
+    {
+      "cliente": "chec",
+      "nombre": "CHEC",
+      "descripcion": "Construcción de humedal artificial",
+      "src": "/img/proyectos/chec-5.webp",
+      "alt": "Construcción de humedal artificial — CHEC"
+    },
+    {
+      "cliente": "chec",
+      "nombre": "CHEC",
+      "descripcion": "Construcción de humedal artificial",
+      "src": "/img/proyectos/chec-6.webp",
+      "alt": "Construcción de humedal artificial — CHEC"
+    },
+    {
+      "cliente": "chec",
+      "nombre": "CHEC",
+      "descripcion": "Construcción de humedal artificial",
+      "src": "/img/proyectos/chec-7.webp",
+      "alt": "Construcción de humedal artificial — CHEC"
+    },
+    {
+      "cliente": "club-manizales",
+      "nombre": "Club Manizales",
+      "descripcion": "Humedal artificial para tratamiento de agua residual",
+      "src": "/img/proyectos/club-manizales-1.webp",
+      "alt": "Humedal artificial para tratamiento de agua residual — Club Manizales"
+    },
+    {
+      "cliente": "club-manizales",
+      "nombre": "Club Manizales",
+      "descripcion": "Humedal artificial para tratamiento de agua residual",
+      "src": "/img/proyectos/club-manizales-2.webp",
+      "alt": "Humedal artificial para tratamiento de agua residual — Club Manizales"
+    },
+    {
+      "cliente": "club-manizales",
+      "nombre": "Club Manizales",
+      "descripcion": "Humedal artificial para tratamiento de agua residual",
+      "src": "/img/proyectos/club-manizales-3.webp",
+      "alt": "Humedal artificial para tratamiento de agua residual — Club Manizales"
+    },
+    {
+      "cliente": "club-manizales",
+      "nombre": "Club Manizales",
+      "descripcion": "Humedal artificial para tratamiento de agua residual",
+      "src": "/img/proyectos/club-manizales-4.webp",
+      "alt": "Humedal artificial para tratamiento de agua residual — Club Manizales"
+    },
+    {
+      "cliente": "club-manizales",
+      "nombre": "Club Manizales",
+      "descripcion": "Humedal artificial para tratamiento de agua residual",
+      "src": "/img/proyectos/club-manizales-5.webp",
+      "alt": "Humedal artificial para tratamiento de agua residual — Club Manizales"
+    },
+    {
+      "cliente": "club-manizales",
+      "nombre": "Club Manizales",
+      "descripcion": "Humedal artificial para tratamiento de agua residual",
+      "src": "/img/proyectos/club-manizales-6.webp",
+      "alt": "Humedal artificial para tratamiento de agua residual — Club Manizales"
+    },
+    {
+      "cliente": "club-manizales",
+      "nombre": "Club Manizales",
+      "descripcion": "Humedal artificial para tratamiento de agua residual",
+      "src": "/img/proyectos/club-manizales-7.webp",
+      "alt": "Humedal artificial para tratamiento de agua residual — Club Manizales"
+    },
+    {
+      "cliente": "club-manizales",
+      "nombre": "Club Manizales",
+      "descripcion": "Humedal artificial para tratamiento de agua residual",
+      "src": "/img/proyectos/club-manizales-8.webp",
+      "alt": "Humedal artificial para tratamiento de agua residual — Club Manizales"
+    },
+    {
+      "cliente": "club-manizales",
+      "nombre": "Club Manizales",
+      "descripcion": "Humedal artificial para tratamiento de agua residual",
+      "src": "/img/proyectos/club-manizales-9.webp",
+      "alt": "Humedal artificial para tratamiento de agua residual — Club Manizales"
+    }
+  ]
+}

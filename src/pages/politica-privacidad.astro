@@ -1,0 +1,24 @@
+---
+import Layout from "../layouts/Layout.astro";
+import EncabezadoPagina from "../components/EncabezadoPagina.astro";
+import sitio from "../datos/sitio.json";
+---
+<Layout titulo={`Política de privacidad | ${sitio.nombre}`} descripcion="Política de privacidad y manejo de información de Hugo Franco Ingeniería S.A.S.">
+  <EncabezadoPagina titulo="Política de privacidad" imagen="/img/nosotros-2.webp" alt="" />
+  <section class="pad">
+    <div class="container" style="max-width:760px">
+      <div class="lead" style="display:grid;gap:20px">
+        <p><strong>Borrador — pendiente de revisión legal. Ver PENDIENTES.md.</strong></p>
+        <p>{sitio.razonSocial}, con domicilio en {sitio.direccion}, {sitio.ciudad}, es responsable del tratamiento de los datos personales que recibe a través de este sitio web.</p>
+        <h2 style="font-size:1.3rem;margin-top:16px">Qué datos recogemos</h2>
+        <p>Únicamente los que usted escribe en el formulario de contacto: nombre, teléfono, correo electrónico, servicio de interés y la descripción de su proyecto. Este sitio no usa cookies de seguimiento ni herramientas de analítica de terceros.</p>
+        <h2 style="font-size:1.3rem;margin-top:16px">Para qué los usamos</h2>
+        <p>Para responder su solicitud, elaborar la cotización y dar seguimiento comercial al proyecto. No vendemos ni cedemos sus datos a terceros.</p>
+        <h2 style="font-size:1.3rem;margin-top:16px">Cómo se envía el formulario</h2>
+        <p>El formulario no almacena información en este sitio: arma el mensaje y lo abre en WhatsApp o en su cliente de correo, de modo que usted decide si lo envía y desde dónde.</p>
+        <h2 style="font-size:1.3rem;margin-top:16px">Sus derechos</h2>
+        <p>Puede consultar, actualizar, rectificar o solicitar la supresión de sus datos escribiendo a <a href={`mailto:${sitio.correo}`} class="marca-text">{sitio.correo}</a>, conforme a la Ley 1581 de 2012 y sus decretos reglamentarios.</p>
+      </div>
+    </div>
+  </section>
+</Layout>

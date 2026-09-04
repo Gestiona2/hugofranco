@@ -1,0 +1,68 @@
+---
+import Layout from "../layouts/Layout.astro";
+import EncabezadoPagina from "../components/EncabezadoPagina.astro";
+import CtaFinal from "../components/CtaFinal.astro";
+import d from "../datos/proyectos.json";
+---
+
+<Layout titulo={d.seo.titulo} descripcion={d.seo.descripcion} activa="proyectos">
+  <EncabezadoPagina
+    titulo={d.encabezado.titulo}
+    texto={d.encabezado.texto}
+    imagen={d.encabezado.imagen}
+    alt={d.encabezado.alt}
+  />
+
+  <section class="pad">
+    <div class="container">
+      <div class="filtros" role="group" aria-label="Filtrar proyectos">
+        {d.filtros.map((f, i) => (
+          <button class={`filtro ${i === 0 ? "activo" : ""}`} data-filtro={f.id} type="button">{f.texto}</button>
+        ))}
+      </div>
+
+      <div class="galeria" id="galeria">
+        {d.items.map((p) => (
+          <figure data-cliente={p.cliente}>
+            <img src={p.src} alt={p.alt} loading="lazy" />
+            <figcaption>
+              <small>{p.descripcion}</small>
+              {p.nombre}
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+
+      <p id="galeriaVacia" style="display:none;color:var(--text-muted);margin-top:24px">
+        No hay fotos para ese proyecto todavía.
+      </p>
+    </div>
+  </section>
+
+  <CtaFinal
+    titulo="¿Su proyecto se parece a alguno de estos?"
+    texto="Humedales artificiales, plantas de tratamiento o redes contra incendios: cuéntenos y le damos el alcance."
+  />
+</Layout>
+
+<script is:inline>
+  (function () {
+    const botones = document.querySelectorAll(".filtro");
+    const fotos = document.querySelectorAll("#galeria figure");
+    const vacia = document.getElementById("galeriaVacia");
+
+    botones.forEach((b) =>
+      b.addEventListener("click", () => {
+        const id = b.dataset.filtro;
+        botones.forEach((x) => x.classList.toggle("activo", x === b));
+        let visibles = 0;
+        fotos.forEach((f) => {
+          const mostrar = id === "todo" || f.dataset.cliente === id;
+          f.classList.toggle("oculta", !mostrar);
+          if (mostrar) visibles++;
+        });
+        vacia.style.display = visibles ? "none" : "block";
+      })
+    );
+  })();
+</script>

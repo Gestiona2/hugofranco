@@ -1,0 +1,102 @@
+---
+/**
+ * Formulario sin servidor.
+ * No envía nada por su cuenta: arma el texto del mensaje y lo abre
+ * en WhatsApp o en el cliente de correo del visitante. Por eso funciona
+ * en cualquier hosting, sin configurar nada y sin costo.
+ * Si algún día se quiere envío real por correo, ver PENDIENTES.md.
+ */
+import sitio from "../datos/sitio.json";
+import contacto from "../datos/contacto.json";
+const f = contacto.formulario;
+---
+<form id="formContacto" novalidate>
+  <div class="form-grid">
+    <div class="campo">
+      <label for="nombre">Nombre</label>
+      <input id="nombre" name="nombre" type="text" required autocomplete="name" placeholder="Su nombre" />
+    </div>
+    <div class="campo">
+      <label for="telefono">Teléfono</label>
+      <input id="telefono" name="telefono" type="tel" required autocomplete="tel" placeholder="300 000 0000" />
+    </div>
+    <div class="campo">
+      <label for="correo">Correo</label>
+      <input id="correo" name="correo" type="email" autocomplete="email" placeholder="nombre@empresa.com" />
+    </div>
+    <div class="campo">
+      <label for="servicio">Servicio</label>
+      <select id="servicio" name="servicio">
+        {f.servicios.map((s) => <option value={s}>{s}</option>)}
+      </select>
+    </div>
+    <div class="campo ancho">
+      <label for="mensaje">Cuéntenos del proyecto</label>
+      <textarea id="mensaje" name="mensaje" required placeholder="Tipo de edificación, área aproximada, qué necesita diseñar o certificar…"></textarea>
+    </div>
+    <div class="ancho">
+      <label class="acepto">
+        <input type="checkbox" id="acepto" required />
+        <span>{f.aviso}</span>
+      </label>
+    </div>
+    <div class="ancho" style="display:flex;flex-wrap:wrap;gap:12px;margin-top:6px">
+      <button type="button" id="enviarWa" class="btn btn-primary">
+        <i data-lucide="message-circle"></i> Enviar por WhatsApp
+      </button>
+      <button type="button" id="enviarCorreo" class="btn btn-ghost">
+        <i data-lucide="mail"></i> Enviar por correo
+      </button>
+    </div>
+    <p class="ancho" id="avisoForm" role="status" style="color:#c0392b;font-size:.88rem;min-height:1.2em"></p>
+  </div>
+</form>
+
+<script is:inline define:vars={{ whatsapp: sitio.whatsapp, correo: sitio.correo }}>
+  (function () {
+    const form = document.getElementById("formContacto");
+    if (!form) return;
+    const aviso = document.getElementById("avisoForm");
+    const v = (id) => (document.getElementById(id).value || "").trim();
+
+    function armar() {
+      const nombre = v("nombre"), telefono = v("telefono");
+      const mensaje = v("mensaje"), acepto = document.getElementById("acepto").checked;
+      if (!nombre || !telefono || !mensaje) {
+        aviso.textContent = "Falta el nombre, el teléfono o el mensaje.";
+        return null;
+      }
+      if (!acepto) {
+        aviso.textContent = "Debe aceptar la política de tratamiento de datos.";
+        return null;
+      }
+      aviso.textContent = "";
+      const correoVisitante = v("correo");
+      return [
+        "Solicitud desde la página web",
+        "",
+        "Nombre: " + nombre,
+        "Teléfono: " + telefono,
+        correoVisitante ? "Correo: " + correoVisitante : null,
+        "Servicio: " + v("servicio"),
+        "",
+        mensaje,
+      ].filter(function (l) { return l !== null; }).join("\n"); // filter(Boolean) borraría los renglones en blanco
+    }
+
+    document.getElementById("enviarWa").addEventListener("click", () => {
+      const t = armar();
+      if (t) window.open("https://wa.me/" + whatsapp + "?text=" + encodeURIComponent(t), "_blank", "noopener");
+    });
+
+    document.getElementById("enviarCorreo").addEventListener("click", () => {
+      const t = armar();
+      if (t) {
+        window.location.href =
+          "mailto:" + correo +
+          "?subject=" + encodeURIComponent("Solicitud web · " + v("servicio")) +
+          "&body=" + encodeURIComponent(t);
+      }
+    });
+  })();
+</script>

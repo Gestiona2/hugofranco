@@ -1,0 +1,51 @@
+{
+  "_comentario": "ATENCIÓN: en el sitio anterior este enlace del menú no llevaba a ninguna parte. El contenido de abajo se armó con lo que la propia empresa afirma en otras páginas. Los certificados concretos (número, entidad, vigencia, PDF) están PENDIENTES de que el cliente los entregue — ver PENDIENTES.md.",
+
+  "seo": {
+    "titulo": "Certificaciones y normativa | Hugo Franco Ingeniería",
+    "descripcion": "Marcos normativos bajo los que diseñamos y certificamos: NFPA, normativa colombiana y permisos ambientales de la Corporación Autónoma Regional."
+  },
+
+  "encabezado": {
+    "titulo": "Certificaciones",
+    "texto": "Un sistema contra incendios sin certificación es una promesa. Estos son los marcos bajo los que diseñamos, probamos y respondemos.",
+    "imagen": "/img/hero-incendios.webp",
+    "alt": "Red de protección contra incendios con válvulas y manómetros"
+  },
+
+  "marcos": [
+    {
+      "sigla": "NFPA",
+      "titulo": "National Fire Protection Association",
+      "texto": "El estándar internacional bajo el que diseñamos rociadores automáticos, redes húmedas y secas, bombas contra incendios y tanques de almacenamiento. Define caudales, presiones, cobertura y los criterios de prueba del sistema."
+    },
+    {
+      "sigla": "CAR",
+      "titulo": "Corporación Autónoma Regional",
+      "texto": "Mantesep S.A.S. cuenta con certificación de la Corporación Autónoma Regional para la recolección, el transporte y la disposición de residuos líquidos provenientes de S.T.A.R., baños portátiles y trampas de grasa."
+    },
+    {
+      "sigla": "NAL",
+      "titulo": "Normativa nacional vigente",
+      "texto": "Todo diseño hidráulico, sanitario y ambiental se ejecuta conforme a la reglamentación colombiana aplicable al uso, el área y la ocupación de la edificación."
+    }
+  ],
+
+  "servicio": {
+    "eyebrow": "Certificamos su proyecto",
+    "titulo": "Inspección, prueba y certificación ante la autoridad",
+    "texto": "No solo diseñamos e instalamos: evaluamos, detectamos y corregimos fallas en redes de protección contra incendios a base de agua, ejecutamos la prueba y certificamos el proyecto ante las autoridades competentes.",
+    "pasos": [
+      { "titulo": "Diagnóstico del sistema", "texto": "Revisión del estado real de la red instalada frente a lo que exige la norma." },
+      { "titulo": "Prueba y verificación", "texto": "Prueba hidrostática, verificación de presiones y funcionamiento de equipos." },
+      { "titulo": "Corrección de hallazgos", "texto": "Reparamos o ajustamos lo que impida que el sistema opere como debe." },
+      { "titulo": "Certificación y entrega", "texto": "Acta, soportes y certificación del proyecto ante la autoridad competente." }
+    ]
+  },
+
+  "documentos": {
+    "titulo": "Documentos y soportes",
+    "texto": "Los certificados y resoluciones vigentes se entregan en el proceso de contratación. Si necesita verlos antes, los enviamos por correo a solicitud.",
+    "cta": { "texto": "Solicitar los soportes", "href": "/contacto" }
+  }
+}

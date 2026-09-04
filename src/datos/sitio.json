@@ -1,0 +1,39 @@
+{
+  "_comentario": "Datos que se repiten en TODAS las páginas: menú, contacto, pie. El contenido de cada página vive en su propio archivo (inicio.json, servicios.json…). Si cambias un teléfono o un correo, cámbialo AQUÍ y queda cambiado en todo el sitio.",
+
+  "nombre": "Hugo Franco Ingeniería",
+  "razonSocial": "Hugo Franco Ingeniería S.A.S.",
+  "nit": "PENDIENTE",
+  "descripcion": "Ingeniería hidráulica, sanitaria, ambiental y redes contra incendios en Manizales. Diseño, construcción y certificación bajo NFPA y normativa colombiana.",
+
+  "whatsapp": "573219803291",
+  "telefonoTexto": "+57 321 980 3291",
+  "telefonoFijo": "+57 606 884 2553",
+  "correo": "auxiliar@hugofrancoingenieria.com",
+  "direccion": "Calle 23 # 21-45, Edificio BCH, oficina 1001",
+  "ciudad": "Manizales, Caldas",
+  "horario": "Lunes a viernes, 8:00 a.m. – 6:00 p.m.",
+
+  "claveTema": "hugofranco-tema",
+
+  "menu": [
+    { "id": "inicio", "texto": "Inicio", "href": "/" },
+    { "id": "servicios", "texto": "Servicios", "href": "/servicios" },
+    { "id": "mantesep", "texto": "Mantesep", "href": "/mantesep" },
+    { "id": "proyectos", "texto": "Proyectos", "href": "/proyectos" },
+    { "id": "certificaciones", "texto": "Certificaciones", "href": "/certificaciones" },
+    { "id": "contacto", "texto": "Contacto", "href": "/contacto" }
+  ],
+
+  "ctaPrincipal": { "texto": "Cotizar", "href": "/contacto" },
+
+  "redes": [
+    { "nombre": "Facebook", "icono": "facebook", "href": "https://www.facebook.com/hugofrancoingenieria" },
+    { "nombre": "Instagram", "icono": "instagram", "href": "https://www.instagram.com/hugofrancoingenieria" }
+  ],
+
+  "legales": [
+    { "texto": "Política de privacidad", "href": "/politica-privacidad" },
+    { "texto": "Tratamiento de datos", "href": "/tratamiento-datos" }
+  ]
+}

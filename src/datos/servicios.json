@@ -1,0 +1,73 @@
+{
+  "_comentario": "Los servicios de ingeniería. El campo id se usa como ancla (/servicios#incendios) y también lo lee la página de inicio.",
+
+  "seo": {
+    "titulo": "Servicios de ingeniería | Hugo Franco Ingeniería",
+    "descripcion": "Diseño hidráulico, ingeniería ambiental, redes de protección contra incendios e inspección y certificación NFPA en Manizales y todo Caldas."
+  },
+
+  "encabezado": {
+    "titulo": "Servicios",
+    "texto": "Del cálculo al acta de recibo: diseño, construcción, inspección y certificación de los sistemas que mueven y protegen el agua en su edificación.",
+    "imagen": "/img/diseno-hidraulico.webp",
+    "alt": "Red hidráulica y de protección contra incendios en obra"
+  },
+
+  "lista": [
+    {
+      "id": "hidraulico",
+      "num": "01",
+      "titulo": "Diseño hidráulico",
+      "icono": "waves",
+      "resumen": "Sistemas hidráulicos eficientes para proyectos residenciales, comerciales e industriales.",
+      "texto": "Diseñamos redes de distribución de agua potable, sistemas de drenaje y alcantarillado, y somos expertos en plantas de tratamiento de agua residual. Cada diseño optimiza el uso del recurso hídrico y cumple con las normativas vigentes.",
+      "tags": ["Agua potable", "Alcantarillado", "Drenajes", "PTAR"],
+      "imagen": "/img/diseno-hidraulico.webp",
+      "alt": "Red hidráulica instalada en cubierta industrial"
+    },
+    {
+      "id": "ambiental",
+      "num": "02",
+      "titulo": "Ingeniería ambiental",
+      "icono": "leaf",
+      "resumen": "Proyectos que minimizan el impacto ambiental y promueven el uso sostenible del agua.",
+      "texto": "Diseñamos y optimizamos plantas de tratamiento de aguas residuales, humedales artificiales, sistemas de recolección de aguas lluvias y proyectos de reutilización de agua, asegurando eficiencia y cumplimiento normativo en cada solución.",
+      "tags": ["PTAR", "Humedales artificiales", "Aguas lluvias", "Reúso"],
+      "imagen": "/img/proyectos/termales-3.webp",
+      "alt": "Humedal artificial construido para tratamiento de agua residual"
+    },
+    {
+      "id": "incendios",
+      "num": "03",
+      "titulo": "Redes de protección contra incendios",
+      "icono": "flame",
+      "resumen": "Sistemas que garantizan la seguridad de edificaciones y espacios industriales.",
+      "texto": "Diseñamos e implementamos rociadores automáticos, gabinetes contra incendios, redes húmedas y secas, bombas contra incendios y tanques de almacenamiento de agua, todo bajo estándares NFPA y la normativa nacional vigente.",
+      "tags": ["Rociadores", "Redes húmedas y secas", "Bombas", "Gabinetes", "Tanques"],
+      "imagen": "/img/redes-incendios.webp",
+      "alt": "Cuarto de bombas contra incendio con tablero de control"
+    },
+    {
+      "id": "inspeccion",
+      "num": "04",
+      "titulo": "Inspección, prueba y certificación",
+      "icono": "clipboard-check",
+      "resumen": "Verificamos que el sistema instalado realmente proteja, y lo certificamos.",
+      "texto": "Evaluamos, detectamos y corregimos fallas en redes de protección contra incendios a base de agua. Realizamos la inspección y la prueba, y certificamos el proyecto ante las autoridades competentes para que cada instalación entregue una protección óptima.",
+      "tags": ["Diagnóstico", "Prueba hidrostática", "Corrección de fallas", "Certificación"],
+      "imagen": "/img/hero-incendios.webp",
+      "alt": "Válvulas y manómetros de una red contra incendios"
+    }
+  ],
+
+  "proceso": {
+    "eyebrow": "Cómo trabajamos",
+    "titulo": "Cuatro pasos, sin sorpresas",
+    "pasos": [
+      { "num": "01", "titulo": "Visita y levantamiento", "texto": "Vamos al sitio, medimos y entendemos qué exige la norma para ese uso y esa área." },
+      { "num": "02", "titulo": "Diseño y cálculo", "texto": "Memoria de cálculo, planos y especificación de equipos, con el estándar aplicable citado." },
+      { "num": "03", "titulo": "Construcción o acompañamiento", "texto": "Ejecutamos la obra o supervisamos al instalador para que lo construido sea lo diseñado." },
+      { "num": "04", "titulo": "Prueba y certificación", "texto": "Probamos el sistema, corregimos lo que falle y entregamos la certificación ante la autoridad." }
+    ]
+  }
+}

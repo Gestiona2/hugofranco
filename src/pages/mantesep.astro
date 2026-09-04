@@ -1,0 +1,56 @@
+---
+import Layout from "../layouts/Layout.astro";
+import EncabezadoPagina from "../components/EncabezadoPagina.astro";
+import CtaFinal from "../components/CtaFinal.astro";
+import d from "../datos/mantesep.json";
+---
+
+<Layout titulo={d.seo.titulo} descripcion={d.seo.descripcion} activa="mantesep">
+  <EncabezadoPagina
+    titulo={d.encabezado.titulo}
+    texto={d.encabezado.texto}
+    imagen={d.encabezado.imagen}
+    alt={d.encabezado.alt}
+  />
+
+  <section class="pad">
+    <div class="container">
+      <div class="reveal" style="max-width:56ch;margin-bottom:44px">
+        <span class="eyebrow"><span class="dot"></span>Qué hacemos</span>
+        <h2 class="section-title">Nuestros servicios</h2>
+      </div>
+
+      <div class="rejilla rejilla-3 reveal">
+        {d.servicios.map((s) => (
+          <article class="tarjeta tarjeta-foto">
+            <div class="foto"><img src={s.imagen} alt={s.alt} loading="lazy" /></div>
+            <div class="cuerpo">
+              <div class="tarjeta-icono"><i data-lucide={s.icono}></i></div>
+              <h3>{s.titulo}</h3>
+              <p>{s.texto}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="pad bloque-oscuro">
+    <span class="malla"></span>
+    <div class="container" style="position:relative;max-width:820px;text-align:center">
+      <div class="reveal">
+        <span class="eyebrow"><span class="dot"></span>{d.certificacion.eyebrow}</span>
+        <h2 class="section-title">{d.certificacion.titulo}</h2>
+        <p style="margin-top:22px;font-size:1.08rem">{d.certificacion.texto}</p>
+        <a href="/certificaciones" class="btn btn-accent" style="margin-top:32px">
+          Ver certificaciones <i data-lucide="arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <CtaFinal
+    titulo="¿Necesita un servicio de Mantesep?"
+    texto="Alquiler de baños, mantenimiento de pozos, trampas de grasa o lavado de tanques: díganos qué necesita y para cuándo."
+  />
+</Layout>

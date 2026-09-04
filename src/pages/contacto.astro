@@ -1,0 +1,85 @@
+---
+import Layout from "../layouts/Layout.astro";
+import EncabezadoPagina from "../components/EncabezadoPagina.astro";
+import Formulario from "../components/Formulario.astro";
+import sitio from "../datos/sitio.json";
+import d from "../datos/contacto.json";
+
+const telLimpio = sitio.telefonoFijo.split(" ").join("");
+const datos = [
+  { icono: "message-circle", rotulo: "WhatsApp", texto: sitio.telefonoTexto, href: `https://wa.me/${sitio.whatsapp}` },
+  { icono: "phone", rotulo: "Teléfono fijo", texto: sitio.telefonoFijo, href: `tel:${telLimpio}` },
+  { icono: "mail", rotulo: "Correo", texto: sitio.correo, href: `mailto:${sitio.correo}` },
+  { icono: "map-pin", rotulo: "Oficina", texto: `${sitio.direccion}, ${sitio.ciudad}`, href: null },
+  { icono: "clock", rotulo: "Horario", texto: sitio.horario, href: null },
+];
+---
+
+<Layout titulo={d.seo.titulo} descripcion={d.seo.descripcion} activa="contacto">
+  <EncabezadoPagina
+    titulo={d.encabezado.titulo}
+    texto={d.encabezado.texto}
+    imagen={d.encabezado.imagen}
+    alt={d.encabezado.alt}
+  />
+
+  <section class="pad">
+    <div class="container" style="display:grid;grid-template-columns:1.25fr .85fr;gap:64px;align-items:start">
+      <div class="reveal">
+        <span class="eyebrow"><span class="dot"></span>Escríbanos</span>
+        <h2 class="section-title">{d.formulario.titulo}</h2>
+        <p class="lead" style="margin:18px 0 32px">{d.formulario.texto}</p>
+        <Formulario />
+      </div>
+
+      <aside class="reveal">
+        <div class="contacto-datos">
+          {datos.map((x) => (
+            <div class="dato-fila">
+              <i data-lucide={x.icono}></i>
+              <div>
+                <strong>{x.rotulo}</strong>
+                {x.href
+                  ? <a href={x.href} target={x.href.startsWith("http") ? "_blank" : null} rel="noopener">{x.texto}</a>
+                  : <span>{x.texto}</span>}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div class="pie-redes" style="margin-top:28px">
+          {sitio.redes.map((r) => (
+            <a href={r.href} target="_blank" rel="noopener" aria-label={r.nombre}
+               style="border-color:var(--border-strong);color:var(--text)">
+              <i data-lucide={r.icono}></i>
+            </a>
+          ))}
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section style="padding-bottom:110px">
+    <div class="container">
+      <div class="tarjeta" style="display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;padding:40px">
+        <div>
+          <h2 class="section-title" style="font-size:1.6rem">{d.mapa.titulo}</h2>
+          <p class="lead" style="margin-top:14px;max-width:52ch">{d.mapa.texto}</p>
+          <p style="margin-top:18px;font-weight:600">{sitio.direccion}<br />{sitio.ciudad}</p>
+        </div>
+        <a href={d.mapa.enlace} class="btn btn-primary" target="_blank" rel="noopener">
+          <i data-lucide="map-pin"></i> Abrir en Google Maps
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  @media (max-width: 900px) {
+    section.pad > .container {
+      grid-template-columns: 1fr !important;
+      gap: 44px !important;
+    }
+  }
+</style>

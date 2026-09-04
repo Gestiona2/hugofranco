@@ -1,0 +1,17 @@
+---
+/** Portada corta de las páginas interiores: miga de pan, título y bajada. */
+interface Props { titulo: string; texto?: string; imagen: string; alt?: string; }
+const { titulo, texto, imagen, alt = "" } = Astro.props;
+---
+<section class="encabezado">
+  <div class="encabezado-fondo">
+    <img src={imagen} alt={alt} loading="eager" fetchpriority="high" />
+  </div>
+  <div class="container">
+    <nav class="miga" aria-label="Ruta de navegación">
+      <a href="/">Inicio</a><span>/</span><span>{titulo}</span>
+    </nav>
+    <h1>{titulo}</h1>
+    {texto && <p>{texto}</p>}
+  </div>
+</section>

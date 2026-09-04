@@ -1,0 +1,32 @@
+{
+  "_comentario": "Página de contacto. El formulario NO envía a un servidor: arma el mensaje y lo abre en WhatsApp o en el correo. Por eso no hay que configurar nada para que funcione.",
+  "seo": {
+    "titulo": "Contacto | Hugo Franco Ingeniería",
+    "descripcion": "Escríbanos por WhatsApp o correo. Calle 23 # 21-45, Edificio BCH oficina 1001, Manizales, Caldas."
+  },
+  "encabezado": {
+    "titulo": "Contacto",
+    "texto": "Cuéntenos qué necesita diseñar, construir o certificar. Solemos responder el mismo día hábil.",
+    "imagen": "/img/nosotros-2.webp",
+    "alt": "Oficina de Hugo Franco Ingeniería en Manizales"
+  },
+  "formulario": {
+    "titulo": "Cuéntenos su proyecto",
+    "texto": "Complete los datos y elija cómo prefiere enviarlo. El mensaje se arma solo: usted solo confirma el envío.",
+    "servicios": [
+      "Diseño hidráulico",
+      "Ingeniería ambiental / PTAR",
+      "Redes de protección contra incendios",
+      "Inspección y certificación",
+      "Servicios Mantesep",
+      "Otro"
+    ],
+    "aviso": "Al enviar acepto la política de tratamiento de datos personales de Hugo Franco Ingeniería S.A.S."
+  },
+  "mapa": {
+    "_nota": "No incrustamos el mapa de Google: eso enviaría la IP de cada visitante a Google sin que lo pida. El botón abre el mapa en una pestaña nueva.",
+    "titulo": "Dónde estamos",
+    "texto": "Atendemos en el centro de Manizales. Si viene a la oficina, escríbanos antes por WhatsApp para confirmar que estemos.",
+    "enlace": "https://www.google.com/maps/search/?api=1&query=Calle+23+%2321-45+Edificio+BCH+Manizales+Caldas"
+  }
+}

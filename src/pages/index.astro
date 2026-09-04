@@ -1,0 +1,180 @@
+---
+import Layout from "../layouts/Layout.astro";
+import CtaFinal from "../components/CtaFinal.astro";
+import sitio from "../datos/sitio.json";
+import d from "../datos/inicio.json";
+import servicios from "../datos/servicios.json";
+
+const wa = `https://wa.me/${sitio.whatsapp}`;
+const logos = [...d.clientes.logos, ...d.clientes.logos]; // duplicados: la cinta debe poder repetirse sin corte
+---
+
+<Layout titulo={d.seo.titulo} descripcion={d.seo.descripcion} activa="inicio">
+  <!-- ==================== PORTADA ==================== -->
+  <section class="hero">
+    <div class="hero-fondo" data-parallax="0.06">
+      <img src={d.hero.imagen} alt={d.hero.alt} loading="eager" fetchpriority="high" />
+    </div>
+    <div class="hero-velo"></div>
+
+    <div class="container">
+      <span class="hero-eyebrow">{d.hero.eyebrow}</span>
+      <h1 set:html={d.hero.titulo}></h1>
+      <p class="hero-sub">{d.hero.sub}</p>
+
+      <div class="hero-acciones">
+        {d.hero.acciones.map((a) => (
+          <a href={a.href} class={`btn ${a.estilo}`}>
+            <i data-lucide={a.icono}></i> {a.texto}
+          </a>
+        ))}
+      </div>
+
+      <div class="hero-datos">
+        {d.hero.datos.map((x) => (
+          <div><span>{x.cifra}</span><small>{x.texto}</small></div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CLIENTES ==================== -->
+  <section style="padding:52px 0;border-bottom:1px solid var(--border)">
+    <div class="container" style="margin-bottom:28px">
+      <p style="font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--text-muted);text-align:center">
+        {d.clientes.titulo}
+      </p>
+    </div>
+    <div class="cinta">
+      <div class="cinta-pista">
+        {logos.map((l) => <img src={l.src} alt={l.alt} height="58" loading="lazy" />)}
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== NOSOTROS ==================== -->
+  <section class="pad" id="nosotros">
+    <div class="container nosotros">
+      <div class="reveal">
+        <span class="eyebrow"><span class="dot"></span>{d.nosotros.eyebrow}</span>
+        <h2 class="section-title">{d.nosotros.titulo}</h2>
+        {d.nosotros.parrafos.map((p) => <p class="lead" style="margin-top:20px">{p}</p>)}
+        <ul class="lista-checks">
+          {d.nosotros.puntos.map((p) => (
+            <li><i data-lucide="check-circle-2"></i><span>{p}</span></li>
+          ))}
+        </ul>
+        <a href={d.nosotros.cta.href} class="btn btn-primary" style="margin-top:32px">
+          {d.nosotros.cta.texto} <i data-lucide="arrow-right"></i>
+        </a>
+      </div>
+
+      <div class="nosotros-fotos reveal">
+        {d.nosotros.fotos.map((f) => <img src={f.src} alt={f.alt} loading="lazy" />)}
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SERVICIOS ==================== -->
+  <section class="pad" id="servicios" style="background:var(--bg-soft)">
+    <div class="container">
+      <div class="reveal" style="max-width:60ch;margin-bottom:48px">
+        <span class="eyebrow"><span class="dot"></span>{d.servicios.eyebrow}</span>
+        <h2 class="section-title">{d.servicios.titulo}</h2>
+        <p class="lead" style="margin-top:18px">{d.servicios.intro}</p>
+      </div>
+
+      <div class="servicios-lista">
+        {servicios.lista.map((s) => (
+          <article class="servicio-fila reveal">
+            <div class="servicio-num">{s.num}</div>
+            <div>
+              <h3>{s.titulo}</h3>
+              <div class="servicio-tags">
+                {s.tags.map((t) => <span>{t}</span>)}
+              </div>
+            </div>
+            <div>
+              <p>{s.texto}</p>
+              <a href={`/servicios#${s.id}`} class="btn btn-ghost" style="margin-top:20px;padding:10px 18px;font-size:.86rem">
+                Ver detalle <i data-lucide="arrow-up-right"></i>
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== INSPECCIÓN Y CERTIFICACIÓN ==================== -->
+  <section class="pad bloque-oscuro">
+    <span class="malla"></span>
+    <div class="container nosotros" style="position:relative">
+      <div class="reveal">
+        <span class="eyebrow"><span class="dot"></span>{d.certificacion.eyebrow}</span>
+        <h2 class="section-title">{d.certificacion.titulo}</h2>
+        {d.certificacion.parrafos.map((p) => <p style="margin-top:20px">{p}</p>)}
+        <a href={d.certificacion.cta.href} class="btn btn-accent" style="margin-top:32px">
+          {d.certificacion.cta.texto} <i data-lucide="arrow-right"></i>
+        </a>
+      </div>
+      <div class="reveal">
+        <div class="rejilla rejilla-2">
+          {d.certificacion.puntos.map((p, i) => (
+            <div class="paso">
+              <span class="n">{String(i + 1).padStart(2, "0")}</span>
+              <h3>{p}</h3>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== MANTESEP ==================== -->
+  <section class="pad">
+    <div class="container">
+      <div class="reveal" style="max-width:58ch;margin-bottom:40px">
+        <span class="eyebrow"><span class="dot"></span>Empresa aliada</span>
+        <h2 class="section-title">Mantesep: lo que pasa después de la obra</h2>
+        <p class="lead" style="margin-top:18px">
+          Baños portátiles, pozos sépticos, trampas de grasa y operación de sistemas de tratamiento.
+          Con certificación de la Corporación Autónoma Regional para el manejo de residuos líquidos.
+        </p>
+      </div>
+
+      <div class="rejilla rejilla-4 reveal">
+        {[
+          { t: "Baños portátiles", i: "toilet", img: "/img/banos-portatiles.webp" },
+          { t: "Pozos sépticos", i: "droplets", img: "/img/pozos-septicos.webp" },
+          { t: "Trampas de grasa", i: "filter", img: "/img/trampas-grasa.webp" },
+          { t: "Lavado de tanques", i: "spray-can", img: "/img/lavado-tanques.webp" },
+        ].map((x) => (
+          <a href="/mantesep" class="tarjeta tarjeta-foto">
+            <div class="foto"><img src={x.img} alt={x.t} loading="lazy" /></div>
+            <div class="cuerpo">
+              <h3 style="font-size:1.05rem;margin:0">{x.t}</h3>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <div style="margin-top:34px">
+        <a href="/mantesep" class="btn btn-primary">Ver servicios Mantesep <i data-lucide="arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== TESTIMONIO ==================== -->
+  <section class="pad" style="background:var(--bg-soft)">
+    <div class="container">
+      <div class="cita reveal">
+        <div class="comillas">&ldquo;</div>
+        <blockquote>{d.testimonio.texto}</blockquote>
+        <footer><strong>{d.testimonio.autor}</strong></footer>
+      </div>
+    </div>
+  </section>
+
+  <CtaFinal titulo={d.ctaFinal.titulo} texto={d.ctaFinal.texto} />
+</Layout>

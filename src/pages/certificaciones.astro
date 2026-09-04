@@ -1,0 +1,66 @@
+---
+import Layout from "../layouts/Layout.astro";
+import EncabezadoPagina from "../components/EncabezadoPagina.astro";
+import CtaFinal from "../components/CtaFinal.astro";
+import d from "../datos/certificaciones.json";
+---
+
+<Layout titulo={d.seo.titulo} descripcion={d.seo.descripcion} activa="certificaciones">
+  <EncabezadoPagina
+    titulo={d.encabezado.titulo}
+    texto={d.encabezado.texto}
+    imagen={d.encabezado.imagen}
+    alt={d.encabezado.alt}
+  />
+
+  <section class="pad">
+    <div class="container">
+      <div class="rejilla rejilla-3 reveal">
+        {d.marcos.map((m) => (
+          <article class="tarjeta">
+            <span class="sigla">{m.sigla}</span>
+            <h3>{m.titulo}</h3>
+            <p>{m.texto}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="pad bloque-oscuro">
+    <span class="malla"></span>
+    <div class="container" style="position:relative">
+      <div class="reveal" style="max-width:56ch;margin-bottom:48px">
+        <span class="eyebrow"><span class="dot"></span>{d.servicio.eyebrow}</span>
+        <h2 class="section-title">{d.servicio.titulo}</h2>
+        <p style="margin-top:20px">{d.servicio.texto}</p>
+      </div>
+      <div class="rejilla rejilla-4 reveal">
+        {d.servicio.pasos.map((p, i) => (
+          <div class="paso">
+            <span class="n">{String(i + 1).padStart(2, "0")}</span>
+            <h3>{p.titulo}</h3>
+            <p>{p.texto}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="pad">
+    <div class="container" style="max-width:760px;text-align:center">
+      <div class="reveal">
+        <h2 class="section-title">{d.documentos.titulo}</h2>
+        <p class="lead" style="margin-top:18px">{d.documentos.texto}</p>
+        <a href={d.documentos.cta.href} class="btn btn-primary" style="margin-top:30px">
+          {d.documentos.cta.texto} <i data-lucide="arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <CtaFinal
+    titulo="¿Su sistema contra incendios está certificado?"
+    texto="Si no lo sabe, lo revisamos. Inspeccionamos, probamos y certificamos ante la autoridad competente."
+  />
+</Layout>

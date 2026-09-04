@@ -1,0 +1,56 @@
+{
+  "_comentario": "Página de Mantesep S.A.S., la empresa aliada de servicios sanitarios.",
+  "seo": {
+    "titulo": "Mantesep | Servicios sanitarios y manejo de residuos líquidos",
+    "descripcion": "Alquiler de baños portátiles, mantenimiento de pozos sépticos, trampas de grasa y operación de sistemas de tratamiento de agua. Empresa certificada por la Corporación Autónoma Regional."
+  },
+  "encabezado": {
+    "titulo": "Mantesep",
+    "texto": "Gestión eficiente de residuos líquidos con soluciones sanitarias prácticas y sostenibles. Servicios confiables para obra, industria, comercio y eventos, con cumplimiento normativo y altos estándares de calidad.",
+    "imagen": "/img/pozos-septicos.webp",
+    "alt": "Vehículo de succión de Mantesep para mantenimiento de pozos sépticos"
+  },
+  "servicios": [
+    {
+      "titulo": "Alquiler de baños portátiles",
+      "icono": "toilet",
+      "texto": "Soluciones sanitarias temporales para eventos, obras en construcción y espacios sin acceso a infraestructura sanitaria. Instalación, mantenimiento durante el servicio y retiro.",
+      "imagen": "/img/banos-portatiles.webp",
+      "alt": "Baño portátil de Mantesep siendo transportado a obra"
+    },
+    {
+      "titulo": "Mantenimiento de pozos sépticos",
+      "icono": "droplets",
+      "texto": "Limpieza y mantenimiento preventivo de pozos sépticos, para asegurar su correcto funcionamiento y evitar obstrucciones o contaminación del terreno.",
+      "imagen": "/img/pozos-septicos.webp",
+      "alt": "Vehículo de succión para mantenimiento de pozos sépticos"
+    },
+    {
+      "titulo": "Trampas de grasa",
+      "icono": "filter",
+      "texto": "Instalación y mantenimiento de trampas de grasa para restaurantes e industrias. Prevenimos obstrucciones y ayudamos a cumplir con los estándares ambientales.",
+      "imagen": "/img/trampas-grasa.webp",
+      "alt": "Mantenimiento de trampa de grasa"
+    },
+    {
+      "titulo": "Operación de sistemas de tratamiento",
+      "icono": "settings-2",
+      "texto": "Operación y mantenimiento de sistemas de tratamiento de aguas residuales (S.T.A.R.). Garantizamos eficiencia y cumplimiento con la normativa ambiental vigente.",
+      "imagen": "/img/proyectos/termales-3.webp",
+      "alt": "Humedal artificial en operación para tratamiento de agua residual"
+    },
+    {
+      "titulo": "Lavado de tanques",
+      "icono": "spray-can",
+      "texto": "Lavado y desinfección de tanques de almacenamiento de agua potable, con registro del procedimiento para soportar el cumplimiento sanitario.",
+      "imagen": "/img/lavado-tanques.webp",
+      "alt": "Tanque de almacenamiento de agua lavado y desinfectado"
+    }
+  ],
+  "certificacion": {
+    "eyebrow": "Por qué elegirnos",
+    "titulo": "Somos empresa certificada",
+    "texto": "Contamos con certificación para la recolección, el transporte y la disposición de residuos líquidos provenientes de S.T.A.R., baños portátiles y trampas de grasa, expedida por la Corporación Autónoma Regional.",
+    "nota": "PENDIENTE — adjuntar el número de resolución y el PDF del certificado."
+  }
+}

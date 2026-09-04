@@ -1,0 +1,26 @@
+---
+/** Llamado a la acción que cierra casi todas las páginas. */
+import sitio from "../datos/sitio.json";
+interface Props { titulo: string; texto: string; }
+const { titulo, texto } = Astro.props;
+const wa = `https://wa.me/${sitio.whatsapp}?text=${encodeURIComponent("Hola, quisiera cotizar un proyecto con Hugo Franco Ingeniería.")}`;
+---
+<section class="pad">
+  <div class="container">
+    <div class="cta-final reveal">
+      <span class="brillo"></span>
+      <div style="position:relative">
+        <h2>{titulo}</h2>
+        <p>{texto}</p>
+        <div class="acciones">
+          <a href={wa} class="btn btn-accent" target="_blank" rel="noopener">
+            <i data-lucide="message-circle"></i> Escribir por WhatsApp
+          </a>
+          <a href="/contacto" class="btn btn-ghost btn-ghost-oscuro">
+            <i data-lucide="mail"></i> Formulario de contacto
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
