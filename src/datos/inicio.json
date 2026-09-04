@@ -1,11 +1,9 @@
 {
   "_comentario": "Contenido de la página de inicio. Cambia los textos aquí; no hay texto escrito dentro de los .astro.",
-
   "seo": {
-    "titulo": "Hugo Franco Ingeniería | Redes contra incendios e ingeniería hidráulica en Manizales",
-    "descripcion": "Diseño, construcción y certificación de redes contra incendios, sistemas hidráulicos y plantas de tratamiento de agua residual. NFPA y normativa colombiana. Manizales, Caldas."
+    "titulo": "Redes contra incendios e ingeniería hidráulica | Hugo Franco",
+    "descripcion": "Diseño, construcción y certificación de redes contra incendios y sistemas hidráulicos bajo NFPA. Manizales, Caldas."
   },
-
   "hero": {
     "eyebrow": "Manizales · Caldas · Colombia",
     "titulo": "Ingeniería que <em>protege</em> la vida y el agua",
@@ -13,17 +11,38 @@
     "imagen": "/img/hero-incendios.webp",
     "alt": "Montante y válvulas de una red de protección contra incendios",
     "acciones": [
-      { "texto": "Cotizar un proyecto", "href": "/contacto", "estilo": "btn-accent", "icono": "arrow-right" },
-      { "texto": "Ver proyectos", "href": "/proyectos", "estilo": "btn-ghost btn-ghost-oscuro", "icono": "layout-grid" }
+      {
+        "texto": "Cotizar un proyecto",
+        "href": "/contacto",
+        "estilo": "btn-accent",
+        "icono": "arrow-right"
+      },
+      {
+        "texto": "Ver proyectos",
+        "href": "/proyectos",
+        "estilo": "btn-ghost btn-ghost-oscuro",
+        "icono": "layout-grid"
+      }
     ],
     "datos": [
-      { "cifra": "NFPA", "texto": "Estándar de diseño" },
-      { "cifra": "4", "texto": "Frentes de ingeniería" },
-      { "cifra": "+8", "texto": "Entidades atendidas" },
-      { "cifra": "100%", "texto": "Proyectos certificados" }
+      {
+        "cifra": "NFPA",
+        "texto": "Estándar de diseño"
+      },
+      {
+        "cifra": "4",
+        "texto": "Frentes de ingeniería"
+      },
+      {
+        "cifra": "+8",
+        "texto": "Entidades atendidas"
+      },
+      {
+        "cifra": "100%",
+        "texto": "Proyectos certificados"
+      }
     ]
   },
-
   "nosotros": {
     "eyebrow": "Sobre nosotros",
     "titulo": "Un equipo certificado detrás de cada sistema",
@@ -37,19 +56,26 @@
       "Plantas de tratamiento de agua residual y humedales artificiales",
       "Operación y mantenimiento con Mantesep S.A.S."
     ],
-    "cta": { "texto": "Conoce nuestro trabajo", "href": "/proyectos" },
+    "cta": {
+      "texto": "Conoce nuestro trabajo",
+      "href": "/proyectos"
+    },
     "fotos": [
-      { "src": "/img/nosotros-1.webp", "alt": "Ingeniero de Hugo Franco Ingeniería en campo" },
-      { "src": "/img/nosotros-2.webp", "alt": "Equipo de Hugo Franco Ingeniería en oficina" }
+      {
+        "src": "/img/nosotros-1.webp",
+        "alt": "Ingeniero de Hugo Franco Ingeniería en campo"
+      },
+      {
+        "src": "/img/nosotros-2.webp",
+        "alt": "Equipo de Hugo Franco Ingeniería en oficina"
+      }
     ]
   },
-
   "servicios": {
     "eyebrow": "Qué hacemos",
     "titulo": "Cuatro frentes, una sola responsabilidad",
     "intro": "Del cálculo al acta de recibo. Cada frente resuelve una parte del ciclo del agua y de la seguridad contra incendio en la edificación."
   },
-
   "certificacion": {
     "eyebrow": "Inspección y certificación",
     "titulo": "No basta con instalar. Hay que probar que funciona.",
@@ -63,36 +89,70 @@
       "Detección y corrección de fallas",
       "Acta y certificación ante la autoridad competente"
     ],
-    "cta": { "texto": "Solicitar una inspección", "href": "/contacto" }
+    "cta": {
+      "texto": "Solicitar una inspección",
+      "href": "/contacto"
+    }
   },
-
   "clientes": {
     "eyebrow": "Confían en nosotros",
     "titulo": "Entidades y empresas que han contratado nuestros diseños",
     "logos": [
-      { "src": "/img/clientes/alcaldia.webp", "alt": "Alcaldía de Manizales" },
-      { "src": "/img/clientes/gobernacion.webp", "alt": "Gobernación de Caldas" },
-      { "src": "/img/clientes/corpocaldas.webp", "alt": "Corpocaldas" },
-      { "src": "/img/clientes/empocaldas.webp", "alt": "Empocaldas" },
-      { "src": "/img/clientes/u-caldas.webp", "alt": "Universidad de Caldas" },
-      { "src": "/img/clientes/mall-plaza.webp", "alt": "Mall Plaza" },
-      { "src": "/img/clientes/cfc.webp", "alt": "CFC" },
-      { "src": "/img/clientes/berlin.webp", "alt": "Berlín" }
+      {
+        "src": "/img/clientes/alcaldia.webp",
+        "alt": "Alcaldía de Manizales"
+      },
+      {
+        "src": "/img/clientes/gobernacion.webp",
+        "alt": "Gobernación de Caldas"
+      },
+      {
+        "src": "/img/clientes/corpocaldas.webp",
+        "alt": "Corpocaldas"
+      },
+      {
+        "src": "/img/clientes/empocaldas.webp",
+        "alt": "Empocaldas"
+      },
+      {
+        "src": "/img/clientes/u-caldas.webp",
+        "alt": "Universidad de Caldas"
+      },
+      {
+        "src": "/img/clientes/mall-plaza.webp",
+        "alt": "Mall Plaza"
+      },
+      {
+        "src": "/img/clientes/cfc.webp",
+        "alt": "CFC"
+      },
+      {
+        "src": "/img/clientes/berlin.webp",
+        "alt": "Berlín"
+      }
     ]
   },
-
   "testimonio": {
     "texto": "Gracias a Hugo Franco Ingeniería por su profesionalismo y compromiso en cada fase del proyecto hidráulico. Su equipo siempre estuvo dispuesto a resolver nuestras dudas y garantizar soluciones eficientes y a medida. El resultado fue un sistema hidráulico de alta calidad: superaron nuestras expectativas.",
     "autor": "Cliente de proyecto hidráulico",
     "cargo": "PENDIENTE — confirmar nombre, cargo y empresa con el cliente"
   },
-
   "ctaFinal": {
     "titulo": "¿Tiene un proyecto que necesita cumplir norma?",
     "texto": "Cuéntenos qué necesita diseñar, construir o certificar. Le respondemos con el alcance y una cotización.",
     "acciones": [
-      { "texto": "Escribir por WhatsApp", "href": "wa", "estilo": "btn-accent", "icono": "message-circle" },
-      { "texto": "Formulario de contacto", "href": "/contacto", "estilo": "btn-ghost btn-ghost-oscuro", "icono": "mail" }
+      {
+        "texto": "Escribir por WhatsApp",
+        "href": "wa",
+        "estilo": "btn-accent",
+        "icono": "message-circle"
+      },
+      {
+        "texto": "Formulario de contacto",
+        "href": "/contacto",
+        "estilo": "btn-ghost btn-ghost-oscuro",
+        "icono": "mail"
+      }
     ]
   }
 }

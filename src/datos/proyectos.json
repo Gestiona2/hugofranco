@@ -2,7 +2,7 @@
   "_comentario": "Galería de proyectos. 'filtros' controla los botones de arriba; cada imagen se asocia por el campo 'cliente'. Para agregar un proyecto: sube la foto a /public/img/proyectos/ y añade una entrada aquí.",
   "seo": {
     "titulo": "Proyectos | Hugo Franco Ingeniería",
-    "descripcion": "Humedales artificiales, plantas de tratamiento de agua residual y redes hidráulicas ejecutadas en Caldas: Universidad de Caldas, CHEC, Club Manizales, Termales de Tierra Viva y Solario."
+    "descripcion": "Humedales artificiales y plantas de tratamiento ejecutadas en Caldas: U. de Caldas, CHEC, Club Manizales, Termales y Solario."
   },
   "encabezado": {
     "titulo": "Proyectos",
