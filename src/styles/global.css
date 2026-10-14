@@ -317,7 +317,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .prueba-pie { display: flex; justify-content: space-between; align-items: center; gap: 14px; margin-top: 10px; padding-top: 12px; border-top: 1px dashed var(--linea-fuerte); }
 .prueba-pie small { font-size: .8rem; color: var(--text-muted); line-height: 1.4; max-width: 38ch; }
 .sello {
-  position: absolute; right: 34px; bottom: 104px; width: 112px; height: 112px; display: grid; place-items: center; text-align: center;
+  position: absolute; right: 34px; bottom: 142px; width: 104px; height: 104px; display: grid; place-items: center; text-align: center;
   border-radius: 50%; background: var(--lima); color: var(--tinta);
   box-shadow: 0 0 0 4px var(--lima), 0 0 0 6px var(--tinta), 0 14px 30px -10px rgba(11,23,48,.5);
   font-family: var(--font-display); font-stretch: 80%; font-weight: 800; line-height: 1; text-transform: uppercase;
@@ -685,7 +685,7 @@ dialog.visor::backdrop { background: rgba(5, 12, 30, .92); backdrop-filter: blur
   .prueba .ref-texto { font-size: 17px; }
   .prueba-cab { flex-direction: column; gap: 10px; }
   .prueba-lectura { text-align: left; }
-  .sello { width: 92px; height: 92px; right: 18px; bottom: 96px; }
+  .sello { width: 84px; height: 84px; right: 16px; bottom: 112px; }
   .sello b { font-size: .92rem; }
   .protocolo-pasos { grid-template-columns: 1fr; gap: 28px; }
   .protocolo { padding-left: 4px; }
