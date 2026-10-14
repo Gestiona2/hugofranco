@@ -18,17 +18,18 @@ interface Props {
 const { titulo, descripcion = sitio.descripcion, activa = "", imagen = "/img/og-hugofranco.jpg" } = Astro.props;
 
 /* URL absolutas: las redes sociales y los buscadores no resuelven rutas relativas. */
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 const origen = Astro.site ?? new URL("https://hugofrancoingenieria.com");
 const canonica = new URL(Astro.url.pathname, origen).href;
-const imagenAbs = new URL(imagen, origen).href;
+const imagenAbs = new URL(base + imagen, origen).href;
 
 const datosEstructurados = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   name: sitio.razonSocial,
   alternateName: sitio.nombre,
-  url: origen.href,
-  logo: new URL("/brand/logo.png", origen).href,
+  url: new URL(base + "/", origen).href,
+  logo: new URL(base + "/brand/logo.png", origen).href,
   image: imagenAbs,
   description: sitio.descripcion,
   telephone: [`+${sitio.whatsapp}`, sitio.telefonoFijo.split(" ").join("")],
@@ -57,6 +58,7 @@ const datosEstructurados = {
     <title>{titulo}</title>
     <meta name="description" content={descripcion} />
     <link rel="canonical" href={canonica} />
+    {sitio.indexar === false && <meta name="robots" content="noindex, nofollow" />}
     <link rel="icon" href="/brand/favicon.png" />
     <link rel="apple-touch-icon" href="/brand/favicon.png" />
     <meta name="theme-color" content="#0b1730" />
