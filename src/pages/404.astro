@@ -1,0 +1,18 @@
+---
+import Layout from "../layouts/Layout.astro";
+import sitio from "../datos/sitio.json";
+import d from "../datos/pagina-404.json";
+---
+<Layout titulo={d.titulo}>
+  <section class="encabezado hoja" style="min-height:70vh;display:grid;align-items:center">
+    <div class="container">
+      <p class="rotulo">{d.codigo}</p>
+      <h1 style="margin-top:18px;max-width:14ch">{d.h1}</h1>
+      <p class="lead">{d.texto}</p>
+      <div class="portada-acciones">
+        <a href="/" class="btn btn-primario">{d.inicio}<span class="chip"><i data-lucide="arrow-right"></i></span></a>
+        <a href={`https://wa.me/${sitio.whatsapp}`} class="btn btn-linea" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,24 +1,4 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import EncabezadoPagina from "../components/EncabezadoPagina.astro";
-import sitio from "../datos/sitio.json";
+import Legal from "../components/Legal.astro";
 ---
-<Layout titulo={`Tratamiento de datos personales | ${sitio.nombre}`} descripcion="Autorización y política de tratamiento de datos personales de Hugo Franco Ingeniería S.A.S.">
-  <EncabezadoPagina titulo="Tratamiento de datos personales" imagen="/img/nosotros-1.webp" alt="" />
-  <section class="pad">
-    <div class="container" style="max-width:760px">
-      <div class="lead" style="display:grid;gap:20px">
-        <p><strong>Borrador — pendiente de revisión legal. Ver PENDIENTES.md.</strong></p>
-        <p>En cumplimiento de la Ley 1581 de 2012 y del Decreto 1074 de 2015, {sitio.razonSocial} informa la finalidad del tratamiento de los datos personales recolectados a través de este sitio.</p>
-        <h2 style="font-size:1.3rem;margin-top:16px">Autorización</h2>
-        <p>Al marcar la casilla del formulario de contacto, usted autoriza de manera libre, previa, expresa e informada a {sitio.razonSocial} para tratar sus datos con las finalidades descritas.</p>
-        <h2 style="font-size:1.3rem;margin-top:16px">Finalidades</h2>
-        <p>Atender su solicitud, preparar propuestas comerciales, ejecutar el contrato si llega a celebrarse, y remitir información relacionada con los servicios que solicitó.</p>
-        <h2 style="font-size:1.3rem;margin-top:16px">Vigencia</h2>
-        <p>Los datos se conservan mientras exista relación comercial y durante los plazos legales de conservación aplicables.</p>
-        <h2 style="font-size:1.3rem;margin-top:16px">Canal de atención</h2>
-        <p>Peticiones, consultas y reclamos: <a href={`mailto:${sitio.correo}`} class="marca-text">{sitio.correo}</a> · {sitio.telefonoTexto}</p>
-      </div>
-    </div>
-  </section>
-</Layout>
+<Legal clave="tratamiento" />

@@ -5,8 +5,8 @@
     "descripcion": "Diseño, construcción y certificación de redes contra incendios y sistemas hidráulicos bajo NFPA. Manizales, Caldas."
   },
   "hero": {
-    "eyebrow": "Manizales · Caldas · Colombia",
-    "titulo": "Ingeniería que <em>protege</em> la vida y el agua",
+    "eyebrow": "Manizales, Caldas",
+    "titulo": "Ingeniería que protege la vida y el agua",
     "sub": "Diseñamos, construimos y certificamos redes contra incendios, sistemas hidráulicos y plantas de tratamiento de agua residual. Bajo NFPA y normativa colombiana, con el respaldo de un equipo de profesionales certificados.",
     "imagen": "/img/hero-incendios.webp",
     "alt": "Montante y válvulas de una red de protección contra incendios",
@@ -14,14 +14,14 @@
       {
         "texto": "Cotizar un proyecto",
         "href": "/contacto",
-        "estilo": "btn-accent",
+        "estilo": "btn-primario",
         "icono": "arrow-right"
       },
       {
         "texto": "Ver proyectos",
         "href": "/proyectos",
-        "estilo": "btn-ghost btn-ghost-oscuro",
-        "icono": "layout-grid"
+        "estilo": "btn-linea",
+        "icono": null
       }
     ],
     "datos": [
@@ -34,14 +34,87 @@
         "texto": "Frentes de ingeniería"
       },
       {
-        "cifra": "+8",
-        "texto": "Entidades atendidas"
+        "cifra": "8",
+        "texto": "Entidades y empresas clientes"
       },
       {
-        "cifra": "100%",
-        "texto": "Proyectos certificados"
+        "cifra": "5",
+        "texto": "Obras con registro fotográfico"
       }
-    ]
+    ],
+    "respuesta": "Respuesta el mismo día hábil",
+    "prueba": {
+      "titulo": "Prueba hidrostática",
+      "subtitulo": "Red contra incendios · esquema ilustrativo",
+      "presion": "Presión",
+      "tiempo": "Tiempo",
+      "unidad": "psi",
+      "referencia": "200 psi",
+      "ejeX": [
+        "0:00",
+        "0:30",
+        "1:00",
+        "1:30",
+        "2:00"
+      ],
+      "pie": "La red se presuriza y debe sostener 200 psi durante 2 horas sin perder presión (NFPA 13). Si lo logra, se emite el acta.",
+      "sello": {
+        "titulo": "Acta emitida",
+        "sub": "NFPA 13"
+      }
+    },
+    "lamina": {
+      "imagen": "/img/hero-incendios.webp",
+      "alt": "Modelo 3D de una red de protección contra incendios con montantes, válvulas y manómetros",
+      "marcadores": [
+        {
+          "n": 1,
+          "x": 53.3,
+          "y": 20
+        },
+        {
+          "n": 2,
+          "x": 44.9,
+          "y": 58.2
+        },
+        {
+          "n": 3,
+          "x": 20.2,
+          "y": 30
+        },
+        {
+          "n": 4,
+          "x": 57.7,
+          "y": 83.7
+        }
+      ],
+      "leyenda": [
+        {
+          "n": 1,
+          "titulo": "Manómetro",
+          "texto": "Muestra la presión de la red en todo momento."
+        },
+        {
+          "n": 2,
+          "titulo": "Válvula de control",
+          "texto": "Permite aislar un tramo para mantenimiento o prueba."
+        },
+        {
+          "n": 3,
+          "titulo": "Montante",
+          "texto": "Tubería vertical que lleva el agua a cada nivel."
+        },
+        {
+          "n": 4,
+          "titulo": "Colector",
+          "texto": "Reparte el agua a los montantes desde la alimentación."
+        }
+      ],
+      "pie": [
+        "Modelo 3D de referencia",
+        "Red de protección contra incendios"
+      ]
+    }
   },
   "nosotros": {
     "eyebrow": "Sobre nosotros",
@@ -74,7 +147,9 @@
   "servicios": {
     "eyebrow": "Qué hacemos",
     "titulo": "Cuatro frentes, una sola responsabilidad",
-    "intro": "Del cálculo al acta de recibo. Cada frente resuelve una parte del ciclo del agua y de la seguridad contra incendio en la edificación."
+    "intro": "Del cálculo al acta de recibo. Cada frente resuelve una parte del ciclo del agua y de la seguridad contra incendio en la edificación.",
+    "cta": "Ver el detalle",
+    "indiceTitulo": "Frentes"
   },
   "certificacion": {
     "eyebrow": "Inspección y certificación",
@@ -92,7 +167,8 @@
     "cta": {
       "texto": "Solicitar una inspección",
       "href": "/contacto"
-    }
+    },
+    "pasosTitulo": "Así se prueba y se certifica un sistema"
   },
   "clientes": {
     "eyebrow": "Confían en nosotros",
@@ -154,5 +230,36 @@
         "icono": "mail"
       }
     ]
+  },
+  "obra": {
+    "eyebrow": "Obra construida",
+    "titulo": "Humedales y plantas de tratamiento en Caldas",
+    "texto": "Cinco obras con registro fotográfico: sistemas de tratamiento de agua residual y humedales artificiales ejecutados en la región.",
+    "cta": "Ver todas las fotos",
+    "fotosEtiqueta": "fotos"
+  },
+  "mantesep": {
+    "eyebrow": "Empresa aliada",
+    "titulo": "Mantesep: lo que pasa después de la obra",
+    "texto": "Baños portátiles, pozos sépticos, trampas de grasa y operación de sistemas de tratamiento. Con certificación de la Corporación Autónoma Regional para el manejo de residuos líquidos.",
+    "items": [
+      {
+        "t": "Baños portátiles",
+        "img": "/img/banos-portatiles.webp"
+      },
+      {
+        "t": "Pozos sépticos",
+        "img": "/img/pozos-septicos.webp"
+      },
+      {
+        "t": "Trampas de grasa",
+        "img": "/img/trampas-grasa.webp"
+      },
+      {
+        "t": "Lavado de tanques",
+        "img": "/img/lavado-tanques.webp"
+      }
+    ],
+    "cta": "Ver servicios de Mantesep"
   }
 }

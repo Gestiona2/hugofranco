@@ -27,6 +27,14 @@
     "_nota": "No incrustamos el mapa de Google: eso enviaría la IP de cada visitante a Google sin que lo pida. El botón abre el mapa en una pestaña nueva.",
     "titulo": "Dónde estamos",
     "texto": "Atendemos en el centro de Manizales. Si viene a la oficina, escríbanos antes por WhatsApp para confirmar que estemos.",
-    "enlace": "https://www.google.com/maps/search/?api=1&query=Calle+23+%2321-45+Edificio+BCH+Manizales+Caldas"
+    "enlace": "https://www.google.com/maps/search/?api=1&query=Calle+23+%2321-45+Edificio+BCH+Manizales+Caldas",
+    "boton": "Abrir en Google Maps"
+  },
+  "rotulos": {
+    "whatsapp": "WhatsApp",
+    "fijo": "Teléfono fijo",
+    "correo": "Correo",
+    "oficina": "Oficina",
+    "horario": "Horario"
   }
 }

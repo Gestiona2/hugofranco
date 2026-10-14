@@ -7,32 +7,26 @@ import d from "../datos/contacto.json";
 
 const telLimpio = sitio.telefonoFijo.split(" ").join("");
 const datos = [
-  { icono: "message-circle", rotulo: "WhatsApp", texto: sitio.telefonoTexto, href: `https://wa.me/${sitio.whatsapp}` },
-  { icono: "phone", rotulo: "Teléfono fijo", texto: sitio.telefonoFijo, href: `tel:${telLimpio}` },
-  { icono: "mail", rotulo: "Correo", texto: sitio.correo, href: `mailto:${sitio.correo}` },
-  { icono: "map-pin", rotulo: "Oficina", texto: `${sitio.direccion}, ${sitio.ciudad}`, href: null },
-  { icono: "clock", rotulo: "Horario", texto: sitio.horario, href: null },
+  { icono: "message-circle", rotulo: d.rotulos.whatsapp, texto: sitio.telefonoTexto, href: `https://wa.me/${sitio.whatsapp}` },
+  { icono: "phone", rotulo: d.rotulos.fijo, texto: sitio.telefonoFijo, href: `tel:${telLimpio}` },
+  { icono: "mail", rotulo: d.rotulos.correo, texto: sitio.correo, href: `mailto:${sitio.correo}` },
+  { icono: "map-pin", rotulo: d.rotulos.oficina, texto: `${sitio.direccion}, ${sitio.ciudad}`, href: null },
+  { icono: "clock", rotulo: d.rotulos.horario, texto: sitio.horario, href: null },
 ];
 ---
 
 <Layout titulo={d.seo.titulo} descripcion={d.seo.descripcion} activa="contacto">
-  <EncabezadoPagina
-    titulo={d.encabezado.titulo}
-    texto={d.encabezado.texto}
-    imagen={d.encabezado.imagen}
-    alt={d.encabezado.alt}
-  />
+  <EncabezadoPagina titulo={d.encabezado.titulo} texto={d.encabezado.texto} imagen={d.encabezado.imagen} alt={d.encabezado.alt} />
 
-  <section class="pad">
-    <div class="container" style="display:grid;grid-template-columns:1.25fr .85fr;gap:64px;align-items:start">
-      <div class="reveal">
-        <span class="eyebrow"><span class="dot"></span>Escríbanos</span>
-        <h2 class="section-title">{d.formulario.titulo}</h2>
+  <section class="pad" style="padding-top:clamp(36px,5vw,64px)">
+    <div class="container contacto-grid">
+      <div>
+        <h2 class="titulo-seccion" style="max-width:20ch">{d.formulario.titulo}</h2>
         <p class="lead" style="margin:18px 0 32px">{d.formulario.texto}</p>
         <Formulario />
       </div>
 
-      <aside class="reveal">
+      <aside>
         <div class="contacto-datos">
           {datos.map((x) => (
             <div class="dato-fila">
@@ -46,11 +40,9 @@ const datos = [
             </div>
           ))}
         </div>
-
-        <div class="pie-redes" style="margin-top:28px">
+        <div class="pie-redes" style="margin-top:22px">
           {sitio.redes.map((r) => (
-            <a href={r.href} target="_blank" rel="noopener" aria-label={r.nombre}
-               style="border-color:var(--border-strong);color:var(--text)">
+            <a href={r.href} target="_blank" rel="noopener" aria-label={r.nombre} style="border-color:var(--linea-fuerte);color:var(--text)">
               <i data-lucide={r.icono}></i>
             </a>
           ))}
@@ -59,27 +51,18 @@ const datos = [
     </div>
   </section>
 
-  <section style="padding-bottom:110px">
+  <section style="padding-bottom:clamp(72px,9vw,128px)">
     <div class="container">
-      <div class="tarjeta" style="display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;padding:40px">
+      <div class="mapa-bloque esquinas">
         <div>
-          <h2 class="section-title" style="font-size:1.6rem">{d.mapa.titulo}</h2>
+          <h2 style="font-size:1.6rem;font-stretch:105%">{d.mapa.titulo}</h2>
           <p class="lead" style="margin-top:14px;max-width:52ch">{d.mapa.texto}</p>
-          <p style="margin-top:18px;font-weight:600">{sitio.direccion}<br />{sitio.ciudad}</p>
+          <p style="margin-top:18px;font-weight:700">{sitio.direccion}<br />{sitio.ciudad}</p>
         </div>
-        <a href={d.mapa.enlace} class="btn btn-primary" target="_blank" rel="noopener">
-          <i data-lucide="map-pin"></i> Abrir en Google Maps
+        <a href={d.mapa.enlace} class="btn btn-primario" target="_blank" rel="noopener">
+          {d.mapa.boton}<span class="chip"><i data-lucide="map-pin"></i></span>
         </a>
       </div>
     </div>
   </section>
 </Layout>
-
-<style>
-  @media (max-width: 900px) {
-    section.pad > .container {
-      grid-template-columns: 1fr !important;
-      gap: 44px !important;
-    }
-  }
-</style>

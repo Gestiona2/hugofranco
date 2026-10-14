@@ -12,8 +12,9 @@ web-hugofranco/
 ├── src/
 │   ├── datos/          ← TODO EL TEXTO DEL SITIO. Un archivo por página.
 │   ├── pages/          ← Una página por archivo. La dirección sale del nombre.
-│   ├── components/     ← Piezas que se repiten (encabezado, llamado final, formulario)
-│   ├── layouts/        ← Layout.astro: menú, pie, botón de tema. Se ve en todas.
+│   ├── components/     ← Piezas que se repiten: encabezado de página, llamado final,
+│   │                     formulario, Protocolo (la línea de pasos animada), Legal
+│   ├── layouts/        ← Layout.astro: SEO, menú, pie (cajetín), botón de tema. En todas.
 │   └── styles/
 │       └── global.css  ← Colores, tipografías y todos los estilos
 ├── public/
@@ -21,8 +22,10 @@ web-hugofranco/
 │   │   ├── clientes/   ← Logos de la cinta
 │   │   └── proyectos/  ← Galería
 │   ├── brand/          ← Logotipo y favicon
-│   ├── fonts/          ← Las dos tipografías, guardadas aquí
-│   └── vendor/         ← Librerías guardadas aquí (GSAP y los íconos)
+│   ├── fonts/          ← Archivo y Public Sans, guardadas aquí
+│   ├── vendor/         ← Los íconos, guardados aquí
+│   ├── sitemap.xml     ← A mano: agregar cada página nueva
+│   └── robots.txt
 └── dist/               ← Lo que se publica. Se genera solo; no editar.
 ```
 
@@ -38,13 +41,14 @@ web-hugofranco/
 | `src/pages/contacto.astro` | `/contacto` |
 | `src/pages/politica-privacidad.astro` | `/politica-privacidad` |
 | `src/pages/tratamiento-datos.astro` | `/tratamiento-datos` |
+| `src/pages/404.astro` | cualquier dirección que no exista |
 
 Para una página nueva basta con crear el archivo. La dirección sale del nombre.
 
 ## Nada se pide a servidores ajenos
 
-Las tipografías, los íconos y la librería de animación **están guardados dentro del
-sitio**. No se cargan desde Google ni desde un CDN. Dos razones: la privacidad del
+Las tipografías y los íconos **están guardados dentro del sitio** (las animaciones son
+código propio, sin librerías). No se cargan desde Google ni desde un CDN. Dos razones: la privacidad del
 visitante (nadie externo se entera de quién entró) y que el sitio siga funcionando dentro
 de diez años sin depender de que un servicio ajeno siga vivo.
 
@@ -56,11 +60,10 @@ los que el sitio usa, para no cargar 368 KB por 24 dibujos.
 Los que hay hoy:
 
 ```
-arrow-right   arrow-up      arrow-up-right  check-circle-2  circle-check-big
-clipboard-check  clock      droplets        facebook        filter
-flame         instagram     layout-grid     leaf            mail
-map-pin       message-circle  moon          phone           settings-2
-spray-can     sun           toilet          waves
+arrow-right  arrow-up  arrow-up-right  badge-check  check-circle-2  circle-check-big
+clipboard-check  clock  droplets  facebook  filter  flame  instagram  layout-grid
+leaf  mail  map-pin  message-circle  moon  phone  settings-2  spray-can  sun
+toilet  waves
 ```
 
 **Si pones un `icono` que no está en esa lista, no sale nada** (y queda un aviso en la
@@ -71,9 +74,16 @@ instrucciones están escritas ahí mismo, al principio.
 
 ## Las animaciones
 
-GSAP con ScrollTrigger, guardado en `public/vendor/gsap/`. Un elemento con la clase
-`reveal` aparece al llegar a él. Los que tienen `data-parallax` se mueven un poco más
-lento que el resto.
+Código propio (sin GSAP ni otras librerías), en la propia página que las usa:
+
+- **La prueba hidrostática** de la portada (`src/pages/index.astro`, script del final): dibuja
+  la curva con el tiempo, mueve el punto, cuenta el reloj y pone el sello. Empieza cuando se
+  ve en pantalla.
+- **El índice de frentes**: marca el frente que se está viendo.
+- **El protocolo** (`src/components/Protocolo.astro`): la línea de pasos se llena al bajar.
+- **Transición entre páginas:** una línea de CSS (`@view-transition`), la hace el navegador.
+
+Con "reducir movimiento" activado en el sistema, todo aparece terminado, sin animar.
 
 ## El formulario
 

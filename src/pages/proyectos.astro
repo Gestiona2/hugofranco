@@ -6,55 +6,54 @@ import d from "../datos/proyectos.json";
 ---
 
 <Layout titulo={d.seo.titulo} descripcion={d.seo.descripcion} activa="proyectos">
-  <EncabezadoPagina
-    titulo={d.encabezado.titulo}
-    texto={d.encabezado.texto}
-    imagen={d.encabezado.imagen}
-    alt={d.encabezado.alt}
-  />
+  <EncabezadoPagina titulo={d.encabezado.titulo} texto={d.encabezado.texto} imagen={d.encabezado.imagen} alt={d.encabezado.alt} />
 
-  <section class="pad">
+  <section class="pad" style="padding-top:clamp(36px,5vw,64px)">
     <div class="container">
-      <div class="filtros" role="group" aria-label="Filtrar proyectos">
+      <div class="filtros" role="group" aria-label={d.interfaz.filtrar}>
         {d.filtros.map((f, i) => (
-          <button class={`filtro ${i === 0 ? "activo" : ""}`} data-filtro={f.id} type="button">{f.texto}</button>
+          <button class={`filtro ${i === 0 ? "activo" : ""}`} data-filtro={f.id} type="button" aria-pressed={i === 0 ? "true" : "false"}>{f.texto}</button>
         ))}
       </div>
 
       <div class="galeria" id="galeria">
         {d.items.map((p) => (
           <figure data-cliente={p.cliente}>
-            <img src={p.src} alt={p.alt} loading="lazy" />
-            <figcaption>
-              <small>{p.descripcion}</small>
-              {p.nombre}
-            </figcaption>
+            <button type="button" class="abrir" aria-label={`${d.interfaz.ampliar}: ${p.nombre}`}>
+              <img src={p.src} alt={p.alt} width="1000" height="750" loading="lazy" />
+            </button>
+            <figcaption><small>{p.descripcion}</small>{p.nombre}</figcaption>
           </figure>
         ))}
       </div>
 
-      <p id="galeriaVacia" style="display:none;color:var(--text-muted);margin-top:24px">
-        No hay fotos para ese proyecto todavía.
-      </p>
+      <p id="galeriaVacia" style="display:none;color:var(--text-muted);margin-top:24px">{d.interfaz.vacio}</p>
     </div>
   </section>
 
-  <CtaFinal
-    titulo="¿Su proyecto se parece a alguno de estos?"
-    texto="Humedales artificiales, plantas de tratamiento o redes contra incendios: cuéntenos y le damos el alcance."
-  />
+  <CtaFinal titulo={d.cta.titulo} texto={d.cta.texto} />
+
+  <dialog class="visor" id="visor" aria-label={d.interfaz.visor}>
+    <div class="visor-caja">
+      <img id="visorImg" src="" alt="" />
+      <p class="visor-pie" id="visorPie"></p>
+      <button type="button" class="v-cerrar" id="vCerrar" aria-label={d.interfaz.cerrar}>&times;</button>
+      <button type="button" class="v-ant" id="vAnt" aria-label={d.interfaz.anterior}>&#8249;</button>
+      <button type="button" class="v-sig" id="vSig" aria-label={d.interfaz.siguiente}>&#8250;</button>
+    </div>
+  </dialog>
 </Layout>
 
 <script is:inline>
   (function () {
     const botones = document.querySelectorAll(".filtro");
-    const fotos = document.querySelectorAll("#galeria figure");
+    const fotos = [...document.querySelectorAll("#galeria figure")];
     const vacia = document.getElementById("galeriaVacia");
 
     botones.forEach((b) =>
       b.addEventListener("click", () => {
         const id = b.dataset.filtro;
-        botones.forEach((x) => x.classList.toggle("activo", x === b));
+        botones.forEach((x) => { x.classList.toggle("activo", x === b); x.setAttribute("aria-pressed", String(x === b)); });
         let visibles = 0;
         fotos.forEach((f) => {
           const mostrar = id === "todo" || f.dataset.cliente === id;
@@ -64,5 +63,30 @@ import d from "../datos/proyectos.json";
         vacia.style.display = visibles ? "none" : "block";
       })
     );
+
+    /* ---------- Visor de fotos ---------- */
+    const visor = document.getElementById("visor"), img = document.getElementById("visorImg"), pie = document.getElementById("visorPie");
+    let actual = 0;
+    const visibles = () => fotos.filter((f) => !f.classList.contains("oculta"));
+    const mostrar = (i) => {
+      const lista = visibles();
+      actual = (i + lista.length) % lista.length;
+      const f = lista[actual], im = f.querySelector("img"), leyenda = f.querySelector("figcaption");
+      img.src = im.currentSrc || im.src; img.alt = im.alt;
+      pie.innerHTML = "";
+      const s = document.createElement("small"); s.textContent = leyenda.querySelector("small").textContent;
+      pie.append(leyenda.childNodes[leyenda.childNodes.length - 1].textContent, s);
+    };
+    fotos.forEach((f) => f.querySelector(".abrir").addEventListener("click", () => {
+      mostrar(visibles().indexOf(f)); visor.showModal();
+    }));
+    document.getElementById("vCerrar").addEventListener("click", () => visor.close());
+    document.getElementById("vAnt").addEventListener("click", () => mostrar(actual - 1));
+    document.getElementById("vSig").addEventListener("click", () => mostrar(actual + 1));
+    visor.addEventListener("click", (e) => { if (e.target === visor || e.target.classList.contains("visor-caja")) visor.close(); });
+    visor.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowLeft") mostrar(actual - 1);
+      if (e.key === "ArrowRight") mostrar(actual + 1);
+    });
   })();
 </script>

@@ -47,9 +47,10 @@ nombre de la empresa. El sitio anterior tenía los íconos pero sin enlace útil
 las direcciones reales o quitar los íconos.
 
 ### 8. Cifras de la portada
-Hoy dicen NFPA, 4 frentes, +8 entidades y 100% certificados. Todas se sostienen con lo que
-hay, pero son tibias. Si el cliente entrega **años de operación, número de obras o metros
-de red instalados**, esas cifras venden mucho más. No inventarlas.
+Hoy dicen NFPA, 4 frentes, 8 entidades y 5 obras. Cada una se demuestra con algo del propio
+sitio (la cinta de logos y la galería), pero son tibias. Si el cliente entrega **años de
+operación, número de obras o metros de red instalados**, esas cifras venden mucho más. No
+inventarlas.
 
 ### 9. Horario
 `"Lunes a viernes, 8:00 a.m. – 6:00 p.m."` es una suposición razonable: el sitio anterior
@@ -73,4 +74,15 @@ anterior. Funciona muy bien, pero **es un render, no una obra suya**. Una foto r
 cuarto de bombas de ellos sería más fuerte.
 
 ### 13. Página 404
-No hay. Si alguien entra a una dirección que no existe, ve la página de error del hosting.
+Hecha (`src/pages/404.astro`).
+
+### 14. Confirmar la "prueba hidrostática" con el cliente
+La portada tiene un gráfico animado de una prueba hidrostática a **200 psi durante 2 horas**
+(el criterio de NFPA 13 para redes de rociadores). Está rotulado como "esquema ilustrativo",
+no como resultado de una obra suya. Hay que confirmar con el cliente que **así es como
+prueban** sus redes (o los valores que usan) y que está de acuerdo con mostrarlo. Si usan
+otros valores, se cambian en `inicio.json` (`hero.prueba`) y en la curva de `index.astro`.
+
+### 15. Posición de los marcadores de la foto de la portada
+Los cuatro números sobre la foto de la red (manómetro, válvula, montante, colector) están
+puestos a mano sobre la foto actual. Si se cambia la foto, recolocarlos (ver `COMO-EDITAR.md`).

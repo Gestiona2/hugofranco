@@ -1,66 +1,86 @@
 # Marca — Hugo Franco Ingeniería
 
-## De dónde salen estos colores
+## La idea de diseño: "el plano certificado"
 
-Del logotipo existente y del sitio anterior. **No se inventó una paleta nueva**: el verde
-lima ya era el color de la empresa y el azul viene del propio logo. Lo que cambió es cómo
-se usan: antes el verde era un acento decorativo sobre blanco; ahora la autoridad la pone
-el fondo casi negro y el verde es la señal que marca lo importante.
+Esta empresa **prueba y certifica** sistemas. Por eso el sitio se lee como una lámina de
+ingeniería: papel de plano con cuadrícula, líneas de cota, tuberías con su color de línea,
+y un sello de "acta emitida". Cada decisión visual sale de ahí, no de una plantilla.
+
+**Lo memorable es una sola cosa:** la curva de **prueba hidrostática** de la portada. La
+presión sube, se sostiene en 200 psi durante 2 horas y cae el sello "Acta emitida". Todo lo
+demás es sobrio a propósito, para que esa pieza destaque.
 
 ## Colores
 
+Salen del logotipo y de las convenciones de los planos. **No se inventó una paleta
+decorativa.**
+
 | Nombre | Valor | Para qué |
 |---|---|---|
-| Verde profundo | `#5f8a0d` | Botones y texto verde sobre fondo claro. **Es el lima oscurecido** para que se lea bien sobre blanco; el lima puro no alcanza el contraste. |
-| Lima de marca | `#abca1e` | El color de la empresa. Acentos, subrayados, botones sobre fondo oscuro. |
-| Azul del logo | `#1b4fa8` | Está declarado pero hoy solo vive dentro del logotipo. Disponible si se necesita un segundo acento. |
-| Negro verdoso | `#101410` | Portadas, bloques oscuros, pie de página |
-| Fondo claro | `#f6f7f2` | El fondo general. No es blanco puro: es un hueso muy leve, más amable a la vista. |
-| Gris de marca | `#414141` | Texto secundario |
+| Tinta de plano | `#0b1730` | Texto principal en tema claro, botones, bloques oscuros |
+| Azul del logo | `#1b4fa8` | Enlaces, líneas de cota, el frente de "Diseño hidráulico" |
+| Rojo de línea de incendio | `#d1352a` | La curva de la prueba, el frente de incendios, la línea del menú activo |
+| Verde ambiental | `#25763f` | El frente de ingeniería ambiental, Mantesep |
+| Lima de marca | `#abca1e` | **Solo lo aprobado y certificado:** el sello, los marcadores, el botón sobre fondo oscuro. Nunca como texto sobre claro. |
+| Papel de plano | `#eef2f7` | Fondo del tema claro |
 
-**Dónde se cambian:** `src/styles/global.css`, bloques `@theme` y `:root`, al principio
-del archivo. Están todos juntos y comentados.
+> **Regla del lima:** es el color de la empresa, pero se reserva para "aprobado". Si se usa
+> en todas partes deja de significar algo. Sobre fondo claro **nunca** va como texto: no se
+> lee. Para texto verde sobre claro existe `--lima-texto`.
 
-> **Regla de contraste:** el lima `#abca1e` **nunca** va como texto sobre fondo blanco —
-> no se lee. Sobre fondo oscuro sí, y ahí es donde brilla. Para fondo claro está el verde
-> profundo.
+**Dónde se cambian:** `src/styles/global.css`, bloques `:root` (tema claro) y
+`:root[data-theme="dark"]` (cianotipo), al principio del archivo.
 
-## Tema claro y tema oscuro
+### Color de línea de cada frente
 
-El sitio tiene los dos, y el visitante elige con el botón de la luna/sol. La preferencia
-se guarda en su navegador.
+Como en los planos, cada frente lleva el color de su tubería: hidráulico = azul,
+ambiental = verde, incendios = rojo, inspección y certificación = lima. Se define con el
+campo `linea` de cada servicio en `servicios.json` (`azul`, `verde`, `rojo`, `lima`).
+
+## Dos temas
+
+| Tema | Qué es | Fondo |
+|---|---|---|
+| Claro | Papel de plano | `#eef2f7` con cuadrícula azul tenue |
+| Oscuro | **Cianotipo** (azul de plano con trazos claros) | `#0a1c45` |
+
+El visitante elige con el botón de la luna/sol; se guarda en su navegador.
 
 **Cómo funciona, y por qué importa al editar:** ninguna sección usa un color escrito a
-mano. Todas usan variables (`var(--text)`, `var(--bg)`, `var(--marca)`…) que cambian de
-valor según el tema. **Si alguna vez se escribe un color directo en un estilo, ese punto
-se rompe en tema oscuro.** Es el error más fácil de cometer en este sitio.
+mano. Todas usan variables (`var(--text)`, `var(--bg)`, `var(--azul)`…) que cambian según
+el tema. **Si alguna vez se escribe un color directo en un estilo, ese punto se rompe en el
+otro tema.** Es el error más fácil de cometer.
+
+Los bloques "cianotipo" (certificación, Mantesep, llamado final, pie) son azul oscuro en los
+dos temas: son la parte "plano" del sitio.
 
 ## Tipografías
 
-| Uso | Fuente | Dónde |
+| Uso | Fuente | Por qué |
 |---|---|---|
-| Títulos | **Space Grotesk** | Titulares, botones, números, etiquetas |
-| Textos | **Inter** | Párrafos y listas |
+| Títulos, botones, cifras | **Archivo** (variable: peso 100–900 y ancho 62–125 %) | Tiene ancho variable: se usa ancho para titulares y condensado para rótulos tipo cajetín de plano |
+| Textos | **Public Sans** (variable) | Legible, neutra, pensada para texto largo y documentos |
 
-Las dos están **guardadas dentro del sitio** (`public/fonts/`), no se piden a Google. Es a
-propósito: así el sitio no le pasa la IP de cada visitante a un servidor ajeno, y sigue
-funcionando aunque Google cambie algo. Son fuentes variables: un solo archivo cubre todos
-los grosores.
+Las dos están **guardadas dentro del sitio** (`public/fonts/`), no se piden a Google:
+privacidad del visitante y que el sitio funcione dentro de diez años.
 
 ## Tono de los textos
 
-- **Trato de usted.** Es una empresa de ingeniería que le habla a constructoras y
-  entidades públicas, no a consumidores.
+- **Trato de usted.** Le habla a constructoras y entidades públicas, no a consumidores.
 - **Concreto, sin adjetivos de más.** "Probamos el sistema y lo certificamos" pesa más que
   "soluciones de la más alta calidad".
-- **La norma se nombra.** NFPA, Corporación Autónoma Regional, S.T.A.R. Es lo que separa a
-  esta empresa de un instalador cualquiera, y el cliente que la busca reconoce las siglas.
-- **Nunca prometer lo que no se puede probar.** Sin cifras inventadas de años de
-  experiencia, obras entregadas o clientes satisfechos. Todas las cifras del sitio salen
-  de algo verificable.
+- **La norma se nombra.** NFPA, Corporación Autónoma Regional, S.T.A.R.
+- **Nunca prometer lo que no se puede probar.** Sin cifras inventadas. Las cuatro de la
+  portada salen de algo verificable en el propio sitio: NFPA (estándar usado), 4 frentes,
+  8 entidades (los logos de la cinta) y 5 obras (las de la galería).
 
 ## Movimiento
 
-Las secciones aparecen suavemente al bajar. Es discreto a propósito. Si alguien tiene
-activado "reducir movimiento" en su sistema, todo se muestra de una vez, sin animación —
-eso no se debe quitar.
+Hay poco y con intención:
+1. La curva de prueba de la portada (se dibuja una vez, al verla).
+2. El índice de "frentes" que marca el activo mientras se baja.
+3. La línea de pasos del protocolo que se va llenando al bajar.
+4. Transición suave entre páginas (nativa del navegador, donde exista).
+
+Si alguien tiene activado "reducir movimiento" en su sistema, todo se muestra ya terminado,
+sin animar. **Eso no se debe quitar.**

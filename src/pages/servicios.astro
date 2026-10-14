@@ -2,60 +2,46 @@
 import Layout from "../layouts/Layout.astro";
 import EncabezadoPagina from "../components/EncabezadoPagina.astro";
 import CtaFinal from "../components/CtaFinal.astro";
+import Protocolo from "../components/Protocolo.astro";
 import d from "../datos/servicios.json";
 ---
 
 <Layout titulo={d.seo.titulo} descripcion={d.seo.descripcion} activa="servicios">
-  <EncabezadoPagina
-    titulo={d.encabezado.titulo}
-    texto={d.encabezado.texto}
-    imagen={d.encabezado.imagen}
-    alt={d.encabezado.alt}
-  />
+  <EncabezadoPagina titulo={d.encabezado.titulo} texto={d.encabezado.texto} imagen={d.encabezado.imagen} alt={d.encabezado.alt} />
 
-  <section class="pad">
+  <section class="pad" style="padding-top:clamp(36px,5vw,64px)">
     <div class="container">
-      <div class="servicios-lista" style="border-top:none">
-        {d.lista.map((s) => (
-          <article class="servicio-fila reveal" id={s.id} style="scroll-margin-top:110px">
-            <div class="servicio-num">{s.num}</div>
+      {d.lista.map((s) => (
+        <article class={`servicio-pagina l-${s.linea}`} id={s.id}>
+          <div class="sp-grid">
             <div>
-              <div class="tarjeta-icono"><i data-lucide={s.icono}></i></div>
-              <h3>{s.titulo}</h3>
-              <div class="servicio-tags">{s.tags.map((t) => <span>{t}</span>)}</div>
+              <div class="frente-cab">
+                <span class="ico"><i data-lucide={s.icono}></i></span>
+                <span class="n">{s.num}</span>
+              </div>
+              <h2>{s.titulo}</h2>
+              <p class="resumen">{s.resumen}</p>
+              <ul class="etiquetas">{s.tags.map((t) => <li>{t}</li>)}</ul>
             </div>
             <div>
-              <p class="lead" style="font-weight:600;color:var(--text)">{s.resumen}</p>
-              <p style="margin-top:14px">{s.texto}</p>
-              <div class="servicio-foto"><img src={s.imagen} alt={s.alt} loading="lazy" /></div>
+              <p class="lead">{s.texto}</p>
+              <div class="foto esquinas"><img src={s.imagen} alt={s.alt} width="1000" height="560" loading="lazy" /></div>
             </div>
-          </article>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <section class="pad bloque-oscuro">
-    <span class="malla"></span>
-    <div class="container" style="position:relative">
-      <div class="reveal" style="max-width:52ch;margin-bottom:48px">
-        <span class="eyebrow"><span class="dot"></span>{d.proceso.eyebrow}</span>
-        <h2 class="section-title">{d.proceso.titulo}</h2>
-      </div>
-      <div class="rejilla rejilla-4 reveal">
-        {d.proceso.pasos.map((p) => (
-          <div class="paso">
-            <span class="n">{p.num}</span>
-            <h3>{p.titulo}</h3>
-            <p>{p.texto}</p>
           </div>
-        ))}
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="pad cianotipo">
+    <div class="container">
+      <span class="rotulo">{d.proceso.eyebrow}</span>
+      <h2 class="titulo-seccion" style="margin-top:18px">{d.proceso.titulo}</h2>
+      <div style="margin-top:8px">
+        <Protocolo pasos={d.proceso.pasos} etiqueta={d.proceso.titulo} />
       </div>
     </div>
   </section>
 
-  <CtaFinal
-    titulo="¿Cuál de estos frentes necesita?"
-    texto="Cuéntenos el tipo de edificación y el área aproximada, y le decimos qué exige la norma y cuánto cuesta."
-  />
+  <CtaFinal titulo={d.cta.titulo} texto={d.cta.texto} />
 </Layout>

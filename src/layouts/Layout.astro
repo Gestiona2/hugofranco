@@ -1,19 +1,52 @@
 ---
 /**
- * Layout base — lo que se repite en todas las páginas.
- * Menú, pie, botón de tema, aparición al bajar, volver arriba.
+ * Layout base — lo que se repite en todas las páginas:
+ * SEO, menú, pie (cajetín de plano), botón de tema y comportamientos comunes.
  *
  * El contenido de cada página NO se escribe aquí: vive en src/datos/.
  */
 import "../styles/global.css";
 import sitio from "../datos/sitio.json";
+import servicios from "../datos/servicios.json";
 
 interface Props {
   titulo: string;
   descripcion?: string;
   activa?: string;
+  imagen?: string;
 }
-const { titulo, descripcion = sitio.descripcion, activa = "" } = Astro.props;
+const { titulo, descripcion = sitio.descripcion, activa = "", imagen = "/img/og-hugofranco.jpg" } = Astro.props;
+
+/* URL absolutas: las redes sociales y los buscadores no resuelven rutas relativas. */
+const origen = Astro.site ?? new URL("https://hugofrancoingenieria.com");
+const canonica = new URL(Astro.url.pathname, origen).href;
+const imagenAbs = new URL(imagen, origen).href;
+
+const datosEstructurados = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: sitio.razonSocial,
+  alternateName: sitio.nombre,
+  url: origen.href,
+  logo: new URL("/brand/logo.png", origen).href,
+  image: imagenAbs,
+  description: sitio.descripcion,
+  telephone: [`+${sitio.whatsapp}`, sitio.telefonoFijo.split(" ").join("")],
+  email: sitio.correo,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: sitio.direccion,
+    addressLocality: "Manizales",
+    addressRegion: "Caldas",
+    addressCountry: "CO",
+  },
+  areaServed: [{ "@type": "AdministrativeArea", name: "Caldas" }],
+  makesOffer: servicios.lista.map((s) => ({
+    "@type": "Offer",
+    itemOffered: { "@type": "Service", name: s.titulo, description: s.texto },
+  })),
+  sameAs: sitio.redes.map((r) => r.href),
+};
 ---
 
 <!doctype html>
@@ -23,25 +56,38 @@ const { titulo, descripcion = sitio.descripcion, activa = "" } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{titulo}</title>
     <meta name="description" content={descripcion} />
+    <link rel="canonical" href={canonica} />
     <link rel="icon" href="/brand/favicon.png" />
+    <link rel="apple-touch-icon" href="/brand/favicon.png" />
+    <meta name="theme-color" content="#0b1730" />
+    <link rel="preload" href="/fonts/archivo-variable.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/public-sans-variable.woff2" as="font" type="font/woff2" crossorigin />
 
     <!-- Redes sociales -->
     <meta property="og:title" content={titulo} />
     <meta property="og:description" content={descripcion} />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonica} />
+    <meta property="og:locale" content="es_CO" />
+    <meta property="og:site_name" content={sitio.razonSocial} />
+    <meta property="og:image" content={imagenAbs} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={titulo} />
+    <meta name="twitter:description" content={descripcion} />
+    <meta name="twitter:image" content={imagenAbs} />
+    <script type="application/ld+json" set:html={JSON.stringify(datosEstructurados)} />
 
     <!--
       Evita el parpadeo de tema incorrecto.
       Va ANTES de que se pinte nada: si se mueve más abajo, el visitante
-      ve un destello blanco al entrar con tema oscuro.
+      ve un destello del tema equivocado al entrar.
     -->
     <script is:inline define:vars={{ clave: sitio.claveTema }}>
       (function () {
         try {
-          document.documentElement.setAttribute(
-            "data-theme",
-            localStorage.getItem(clave) || "light"
-          );
+          document.documentElement.setAttribute("data-theme", localStorage.getItem(clave) || "light");
         } catch (e) {
           document.documentElement.setAttribute("data-theme", "light");
         }
@@ -53,37 +99,40 @@ const { titulo, descripcion = sitio.descripcion, activa = "" } = Astro.props;
     <!-- ==================== MENÚ ==================== -->
     <header class="nav" id="nav">
       <div class="container nav-inner">
-        <a href="/" class="nav-logo">
+        <a href="/" class="nav-logo" aria-label={`${sitio.nombre} — inicio`}>
           <img src="/brand/logo.webp" alt={sitio.nombre} width="600" height="238" />
         </a>
 
-        <nav class="nav-links" id="navLinks">
+        <nav class="nav-links" id="navLinks" aria-label="Principal">
           {sitio.menu.map((item) => (
-            <a href={item.href} class={activa === item.id ? "activo" : ""}>{item.texto}</a>
+            <a href={item.href} class={activa === item.id ? "activo" : ""} aria-current={activa === item.id ? "page" : undefined}>{item.texto}</a>
           ))}
-          <!-- El botón "Cotizar" de la barra se oculta en celular; aquí vuelve dentro del desplegable. -->
-          <a href={sitio.ctaPrincipal.href} class="btn btn-primary solo-movil">{sitio.ctaPrincipal.texto}</a>
+          <a href={sitio.ctaPrincipal.href} class="btn btn-primario solo-movil">
+            {sitio.ctaPrincipal.texto}<span class="chip"><i data-lucide="arrow-right"></i></span>
+          </a>
         </nav>
 
         <div class="nav-actions">
           <button id="botonTema" aria-label="Cambiar entre tema claro y oscuro"></button>
-          <a href={sitio.ctaPrincipal.href} class="btn btn-primary">{sitio.ctaPrincipal.texto}</a>
-          <button id="botonMenu" aria-label="Abrir menú" aria-expanded="false"></button>
+          <a href={sitio.ctaPrincipal.href} class="btn btn-primario">
+            {sitio.ctaPrincipal.texto}<span class="chip"><i data-lucide="arrow-right"></i></span>
+          </a>
+          <button id="botonMenu" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks"><span></span></button>
         </div>
       </div>
     </header>
 
-    <main>
+    <main id="contenido">
       <slot />
     </main>
 
-    <!-- ==================== PIE ==================== -->
+    <!-- ==================== PIE — cajetín de plano ==================== -->
     <footer class="pie">
       <div class="container">
-        <div class="pie-top">
+        <div class="cajetin">
           <div>
-            <img class="pie-logo" src="/brand/logo.webp" alt={sitio.nombre} width="600" height="238" />
-            <p style="max-width:36ch;font-size:.94rem">{sitio.descripcion}</p>
+            <img class="pie-logo" src="/brand/logo.webp" alt={sitio.nombre} width="600" height="238" loading="lazy" />
+            <p>{sitio.descripcion}</p>
             <div class="pie-redes">
               {sitio.redes.map((r) => (
                 <a href={r.href} target="_blank" rel="noopener" aria-label={r.nombre}>
@@ -103,10 +152,7 @@ const { titulo, descripcion = sitio.descripcion, activa = "" } = Astro.props;
           <div>
             <h4>Servicios</h4>
             <ul>
-              <li><a href="/servicios#hidraulico">Diseño hidráulico</a></li>
-              <li><a href="/servicios#ambiental">Ingeniería ambiental</a></li>
-              <li><a href="/servicios#incendios">Redes contra incendios</a></li>
-              <li><a href="/servicios#inspeccion">Inspección y certificación</a></li>
+              {servicios.lista.map((s) => <li><a href={`/servicios#${s.id}`}>{s.titulo}</a></li>)}
               <li><a href="/mantesep">Servicios Mantesep</a></li>
             </ul>
           </div>
@@ -117,8 +163,7 @@ const { titulo, descripcion = sitio.descripcion, activa = "" } = Astro.props;
               <li><a href={`https://wa.me/${sitio.whatsapp}`} target="_blank" rel="noopener">WhatsApp {sitio.telefonoTexto}</a></li>
               <li><a href={`tel:${sitio.telefonoFijo.split(" ").join("")}`}>{sitio.telefonoFijo}</a></li>
               <li><a href={`mailto:${sitio.correo}`}>{sitio.correo}</a></li>
-              <li>{sitio.direccion}</li>
-              <li>{sitio.ciudad}</li>
+              <li>{sitio.direccion}<br />{sitio.ciudad}</li>
               <li>{sitio.horario}</li>
             </ul>
           </div>
@@ -126,49 +171,32 @@ const { titulo, descripcion = sitio.descripcion, activa = "" } = Astro.props;
 
         <div class="pie-abajo">
           <p>&copy; {new Date().getFullYear()} {sitio.razonSocial}. Todos los derechos reservados.</p>
-          <nav class="pie-legales">
+          <nav class="pie-legales" aria-label="Legales">
             {sitio.legales.map((l) => <a href={l.href}>{l.texto}</a>)}
           </nav>
         </div>
       </div>
     </footer>
 
-    <a
-      href={`https://wa.me/${sitio.whatsapp}`}
-      class="flota-wa"
-      target="_blank"
-      rel="noopener"
-      aria-label="Escribir por WhatsApp"
-    >
+    <a href={`https://wa.me/${sitio.whatsapp}`} class="flota-wa" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
       <i data-lucide="message-circle"></i>
     </a>
     <button class="volver-arriba" id="volverArriba" aria-label="Volver arriba">
       <i data-lucide="arrow-up"></i>
     </button>
 
-    <!--
-      Librerías guardadas dentro del sitio, no desde servidores ajenos.
-      Privacidad + longevidad. Ver conocimiento/politicas.md.
-    -->
+    <!-- Íconos guardados dentro del sitio, no desde servidores ajenos (privacidad + longevidad). -->
     <script is:inline src="/vendor/lucide/lucide.min.js"></script>
-    <script is:inline src="/vendor/gsap/gsap.min.js"></script>
-    <script is:inline src="/vendor/gsap/ScrollTrigger.min.js"></script>
 
     <script is:inline define:vars={{ clave: sitio.claveTema }}>
       const $ = (s) => document.querySelector(s);
-      const $$ = (s) => Array.from(document.querySelectorAll(s));
       const raiz = document.documentElement;
-      const menosMovimiento = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
       if (window.lucide) lucide.createIcons();
 
-      /* ---------- Tema claro / oscuro ---------- */
+      /* ---------- Tema claro / cianotipo ---------- */
       const botonTema = $("#botonTema");
       const pintarBotonTema = () => {
-        botonTema.innerHTML =
-          raiz.getAttribute("data-theme") === "dark"
-            ? '<i data-lucide="sun"></i>'
-            : '<i data-lucide="moon"></i>';
+        botonTema.innerHTML = raiz.getAttribute("data-theme") === "dark" ? '<i data-lucide="sun"></i>' : '<i data-lucide="moon"></i>';
         if (window.lucide) lucide.createIcons();
       };
       botonTema?.addEventListener("click", () => {
@@ -181,67 +209,23 @@ const { titulo, descripcion = sitio.descripcion, activa = "" } = Astro.props;
 
       /* ---------- Menú en celular ---------- */
       const botonMenu = $("#botonMenu");
+      const enlaces = $("#navLinks");
+      const cerrarMenu = () => { enlaces.classList.remove("abierto"); botonMenu.setAttribute("aria-expanded", "false"); botonMenu.setAttribute("aria-label", "Abrir menú"); };
       botonMenu?.addEventListener("click", () => {
-        const abierto = $("#navLinks").classList.toggle("abierto");
+        const abierto = enlaces.classList.toggle("abierto");
         botonMenu.setAttribute("aria-expanded", String(abierto));
+        botonMenu.setAttribute("aria-label", abierto ? "Cerrar menú" : "Abrir menú");
       });
+      document.addEventListener("keydown", (e) => { if (e.key === "Escape") cerrarMenu(); });
+      enlaces?.addEventListener("click", (e) => { if (e.target.closest("a")) cerrarMenu(); });
 
-      /* ---------- Apariciones al bajar, con GSAP ---------- */
-      if (window.gsap && window.ScrollTrigger && !menosMovimiento) {
-        gsap.registerPlugin(ScrollTrigger);
-        $$(".reveal").forEach((el) =>
-          gsap.to(el, {
-            opacity: 1, y: 0, duration: 0.9, ease: "power3.out",
-            scrollTrigger: { trigger: el, start: "top 88%" },
-          })
-        );
-        // Parallax suave: data-parallax="0.08" (valores altos marean)
-        $$("[data-parallax]").forEach((el) => {
-          gsap.to(el, {
-            yPercent: -parseFloat(el.dataset.parallax) * 100, ease: "none",
-            scrollTrigger: { trigger: el, start: "top bottom", end: "bottom top", scrub: true },
-          });
-        });
-      } else {
-        // Sin GSAP o con movimiento reducido: mostrar todo de una vez.
-        $$(".reveal").forEach((el) => { el.style.opacity = 1; el.style.transform = "none"; });
-      }
-
-      /* ---------- Apariciones en CSS puro ---------- */
-      const apariciones = $$(".reveal-up, .reveal-left, .reveal-right, .reveal-pop");
-      // Retraso escalonado dentro de un grupo con data-stagger
-      $$("[data-stagger]").forEach((grupo) => {
-        Array.from(grupo.children).forEach((hijo, i) => hijo.style.setProperty("--i", i));
-      });
-
-      if (menosMovimiento || !("IntersectionObserver" in window)) {
-        apariciones.forEach((el) => el.classList.add("seen"));
-      } else {
-        const observador = new IntersectionObserver(
-          (entradas) => {
-            entradas.forEach((entrada) => {
-              if (entrada.isIntersecting) {
-                entrada.target.classList.add("seen");
-                observador.unobserve(entrada.target);
-              }
-            });
-          },
-          { threshold: 0.18, rootMargin: "0px 0px -8% 0px" }
-        );
-        apariciones.forEach((el) => observador.observe(el));
-      }
-
-      /* ---------- Menú con fondo al bajar + volver arriba ---------- */
-      const nav = $("#nav");
+      /* ---------- Volver arriba ---------- */
       const volverArriba = $("#volverArriba");
-      const alBajar = () => {
-        nav.classList.toggle("bajado", window.scrollY > 20);
-        volverArriba.classList.toggle("visible", window.scrollY > 600);
-      };
+      const alBajar = () => volverArriba.classList.toggle("visible", window.scrollY > 700);
       window.addEventListener("scroll", alBajar, { passive: true });
       alBajar();
       volverArriba?.addEventListener("click", () =>
-        window.scrollTo({ top: 0, behavior: menosMovimiento ? "auto" : "smooth" })
+        window.scrollTo({ top: 0, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" })
       );
     </script>
   </body>

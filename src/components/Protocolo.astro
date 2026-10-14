@@ -1,0 +1,48 @@
+---
+/**
+ * Línea de pasos que se va "llenando" al bajar (la tubería que avanza).
+ * Texto por props: viene de los JSON de cada página.
+ */
+interface Props { pasos: { titulo: string; texto: string }[]; etiqueta: string; }
+const { pasos, etiqueta } = Astro.props;
+---
+<div class="protocolo" data-protocolo>
+  <div class="protocolo-linea" aria-hidden="true" data-h>
+    <svg viewBox="0 0 100 12" preserveAspectRatio="none"><line class="fondo" x1="0" y1="6" x2="100" y2="6"></line><line class="avance" x1="0" y1="6" x2="100" y2="6" pathLength="1" style="stroke-dasharray:1;stroke-dashoffset:1"></line></svg>
+  </div>
+  <div class="protocolo-linea" aria-hidden="true" data-v hidden>
+    <svg viewBox="0 0 12 100" preserveAspectRatio="none"><line class="fondo" x1="6" y1="0" x2="6" y2="100"></line><line class="avance" x1="6" y1="0" x2="6" y2="100" pathLength="1" style="stroke-dasharray:1;stroke-dashoffset:1"></line></svg>
+  </div>
+  <ol class="protocolo-pasos" aria-label={etiqueta}>
+    {pasos.map((s, i) => (
+      <li class="paso">
+        <span class="nodo" aria-hidden="true">{i + 1}</span>
+        <h3>{s.titulo}</h3>
+        <p>{s.texto}</p>
+      </li>
+    ))}
+  </ol>
+</div>
+
+<script is:inline>
+  (function () {
+    const menos = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    document.querySelectorAll("[data-protocolo]").forEach((prot) => {
+      const h = prot.querySelector("[data-h] .avance"), v = prot.querySelector("[data-v] .avance");
+      const lineaH = prot.querySelector("[data-h]"), lineaV = prot.querySelector("[data-v]");
+      const pasos = [...prot.querySelectorAll(".paso")];
+      const actualizar = () => {
+        const vertical = matchMedia("(max-width: 760px)").matches;
+        lineaH.hidden = vertical; lineaV.hidden = !vertical;
+        const r = prot.getBoundingClientRect(), vh = innerHeight;
+        const p = menos ? 1 : Math.min(1, Math.max(0, (vh * 0.78 - r.top) / Math.max(r.height, vh * 0.42)));
+        (vertical ? v : h).style.strokeDashoffset = 1 - p;
+        (vertical ? h : v).style.strokeDashoffset = 1;
+        pasos.forEach((el, i) => el.classList.toggle("listo", p > 0.02 && p >= i / (pasos.length - 1) - 0.001));
+      };
+      addEventListener("scroll", actualizar, { passive: true });
+      addEventListener("resize", actualizar);
+      actualizar();
+    });
+  })();
+</script>

@@ -247,5 +247,18 @@
       "src": "/img/proyectos/club-manizales-9.webp",
       "alt": "Humedal artificial para tratamiento de agua residual — Club Manizales"
     }
-  ]
+  ],
+  "interfaz": {
+    "filtrar": "Filtrar proyectos",
+    "ampliar": "Ampliar foto",
+    "vacio": "No hay fotos para ese proyecto todavía.",
+    "visor": "Visor de fotos",
+    "cerrar": "Cerrar",
+    "anterior": "Foto anterior",
+    "siguiente": "Foto siguiente"
+  },
+  "cta": {
+    "titulo": "¿Su proyecto se parece a alguno de estos?",
+    "texto": "Humedales artificiales, plantas de tratamiento o redes contra incendios: cuéntenos y le damos el alcance."
+  }
 }

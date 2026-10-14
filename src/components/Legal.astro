@@ -1,0 +1,33 @@
+---
+/** Página legal genérica. El texto vive en src/datos/legal.json. */
+import Layout from "../layouts/Layout.astro";
+import EncabezadoPagina from "./EncabezadoPagina.astro";
+import sitio from "../datos/sitio.json";
+import legal from "../datos/legal.json";
+interface Props { clave: "privacidad" | "tratamiento"; }
+const { clave } = Astro.props;
+const pagina = legal[clave];
+
+const valores: Record<string, string> = {
+  razonSocial: sitio.razonSocial, direccion: sitio.direccion, ciudad: sitio.ciudad, correo: sitio.correo, telefono: sitio.telefonoTexto,
+};
+/* Devuelve el texto partido en trozos para poder volver enlace el correo */
+const partir = (t: string) =>
+  t.split(/(\{correo\})/).map((x) => (x === "{correo}" ? { correo: true } : { txt: x.replace(/\{(\w+)\}/g, (_, k) => valores[k] ?? "") }));
+---
+<Layout titulo={`${pagina.titulo} | ${sitio.nombre}`} descripcion={pagina.seo}>
+  <EncabezadoPagina titulo={pagina.titulo} imagen={pagina.imagen} alt="" />
+  <section class="pad" style="padding-top:clamp(36px,5vw,64px)">
+    <div class="container">
+      <div class="legal">
+        <p class="aviso-borrador">{legal.aviso}</p>
+        {pagina.bloques.map((b) => (
+          <>
+            {b.h && <h2>{b.h}</h2>}
+            <p>{partir(b.p).map((x) => ("correo" in x ? <a href={`mailto:${sitio.correo}`}>{sitio.correo}</a> : x.txt))}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>

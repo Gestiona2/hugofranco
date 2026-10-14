@@ -1,0 +1,58 @@
+{
+  "_comentario": "Textos legales. BORRADORES sin revisión de abogado (ver PENDIENTES.md). Los marcadores {razonSocial}, {direccion}, {ciudad}, {correo} y {telefono} se reemplazan con los datos de sitio.json.",
+  "aviso": "Borrador — pendiente de revisión legal. Ver PENDIENTES.md.",
+  "privacidad": {
+    "titulo": "Política de privacidad",
+    "slug": "politica-privacidad",
+    "imagen": "/img/nosotros-2.webp",
+    "seo": "Política de privacidad y manejo de información de Hugo Franco Ingeniería S.A.S.",
+    "bloques": [
+      {
+        "p": "{razonSocial}, con domicilio en {direccion}, {ciudad}, es responsable del tratamiento de los datos personales que recibe a través de este sitio web."
+      },
+      {
+        "h": "Qué datos recogemos",
+        "p": "Únicamente los que usted escribe en el formulario de contacto: nombre, teléfono, correo electrónico, servicio de interés y la descripción de su proyecto. Este sitio no usa cookies de seguimiento ni herramientas de analítica de terceros."
+      },
+      {
+        "h": "Para qué los usamos",
+        "p": "Para responder su solicitud, elaborar la cotización y dar seguimiento comercial al proyecto. No vendemos ni cedemos sus datos a terceros."
+      },
+      {
+        "h": "Cómo se envía el formulario",
+        "p": "El formulario no almacena información en este sitio: arma el mensaje y lo abre en WhatsApp o en su cliente de correo, de modo que usted decide si lo envía y desde dónde."
+      },
+      {
+        "h": "Sus derechos",
+        "p": "Puede consultar, actualizar, rectificar o solicitar la supresión de sus datos escribiendo a {correo}, conforme a la Ley 1581 de 2012 y sus decretos reglamentarios."
+      }
+    ]
+  },
+  "tratamiento": {
+    "titulo": "Tratamiento de datos personales",
+    "slug": "tratamiento-datos",
+    "imagen": "/img/nosotros-1.webp",
+    "seo": "Autorización y política de tratamiento de datos personales de Hugo Franco Ingeniería S.A.S.",
+    "bloques": [
+      {
+        "p": "En cumplimiento de la Ley 1581 de 2012 y del Decreto 1074 de 2015, {razonSocial} informa la finalidad del tratamiento de los datos personales recolectados a través de este sitio."
+      },
+      {
+        "h": "Autorización",
+        "p": "Al marcar la casilla del formulario de contacto, usted autoriza de manera libre, previa, expresa e informada a {razonSocial} para tratar sus datos con las finalidades descritas."
+      },
+      {
+        "h": "Finalidades",
+        "p": "Atender su solicitud, preparar propuestas comerciales, ejecutar el contrato si llega a celebrarse, y remitir información relacionada con los servicios que solicitó."
+      },
+      {
+        "h": "Vigencia",
+        "p": "Los datos se conservan mientras exista relación comercial y durante los plazos legales de conservación aplicables."
+      },
+      {
+        "h": "Canal de atención",
+        "p": "Peticiones, consultas y reclamos: {correo} · {telefono}"
+      }
+    ]
+  }
+}

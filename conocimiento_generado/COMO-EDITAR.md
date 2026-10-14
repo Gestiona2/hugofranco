@@ -18,11 +18,21 @@ con espacios, el botón de WhatsApp deja de abrir la conversación.
 
 ## Cambiar el texto de la portada
 
-`src/datos/inicio.json`, bloque `hero`. La palabra en verde se marca con `<em>`:
+`src/datos/inicio.json`, bloque `hero`. El titular es texto plano:
 
 ```json
-"titulo": "Ingeniería que <em>protege</em> la vida y el agua",
+"titulo": "Ingeniería que protege la vida y el agua",
 ```
+
+La curva animada de la prueba y la lámina con la foto tienen sus propios textos en
+`hero.prueba` y `hero.lamina`. **No cambiar el "200 psi" ni las 2 horas** sin consultar: son
+los valores de la prueba hidrostática de NFPA 13 que dibuja el gráfico.
+
+## Cambiar la foto de la lámina de la portada
+
+Guardar la nueva en `public/img/hero-incendios.webp` (proporción 2,7:1). Los cuatro
+marcadores numerados (`hero.lamina.marcadores`, con `x` e `y` en porcentaje de la imagen)
+apuntan a partes de la foto actual: **hay que recolocarlos** para la nueva.
 
 ## Cambiar el texto de un servicio
 

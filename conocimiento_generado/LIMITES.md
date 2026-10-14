@@ -12,9 +12,10 @@ por la Corporación Autónoma Regional y que se certifica ante las autoridades c
 Eso es verificable y alguien lo puede exigir. No adornarlo, no ampliarlo, no agregar
 certificaciones que no existan.
 
-**Las cifras.** Las cuatro de la portada (NFPA, 4 frentes, +8 entidades, 100% certificados)
-se pueden sostener. **No agregar años de experiencia, obras entregadas ni clientes
-satisfechos sin que el cliente entregue el dato.**
+**Las cifras.** Las cuatro de la portada (NFPA, 4 frentes, 8 entidades, 5 obras) se pueden
+demostrar dentro del propio sitio: los logos de la cinta y las obras de la galería. **No
+agregar años de experiencia, obras entregadas ni clientes satisfechos sin que el cliente
+entregue el dato.** Si cambia el número de logos u obras, actualizar la cifra.
 
 **El nombre del testimonio.** Hoy dice "Cliente de proyecto hidráulico" porque no está
 confirmado quién lo dijo. Poner un nombre inventado sería atribuirle a una persona real

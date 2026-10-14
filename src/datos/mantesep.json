@@ -51,6 +51,15 @@
     "eyebrow": "Por qué elegirnos",
     "titulo": "Somos empresa certificada",
     "texto": "Contamos con certificación para la recolección, el transporte y la disposición de residuos líquidos provenientes de S.T.A.R., baños portátiles y trampas de grasa, expedida por la Corporación Autónoma Regional.",
-    "nota": "PENDIENTE — adjuntar el número de resolución y el PDF del certificado."
+    "nota": "PENDIENTE — adjuntar el número de resolución y el PDF del certificado.",
+    "cta": "Ver certificaciones"
+  },
+  "lista": {
+    "eyebrow": "Qué hacemos",
+    "titulo": "Cinco servicios sanitarios"
+  },
+  "cta": {
+    "titulo": "¿Necesita un servicio de Mantesep?",
+    "texto": "Alquiler de baños, mantenimiento de pozos, trampas de grasa o lavado de tanques: díganos qué necesita y para cuándo."
   }
 }
